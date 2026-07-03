@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { MobileMenu } from "@/components/layout/MobileMenu";
 import { PERSON_ALIAS } from "@/content/site";
 
 export function Header() {
@@ -13,21 +14,25 @@ export function Header() {
           {PERSON_ALIAS}
         </Link>
 
-        <nav className="flex items-center gap-4 text-sm tracking-wide sm:gap-6">
-          <Link href="/projects" className="transition-colors hover:text-accent">
-            work
-          </Link>
-          <Link href="/links" className="transition-colors hover:text-accent">
-            links
-          </Link>
-          <Link
-            href="/#contact"
-            className="rounded-full border border-foreground px-4 py-1.5 transition-colors hover:border-accent hover:text-accent"
-          >
-            reach out
-          </Link>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <nav className="hidden items-center gap-6 text-sm tracking-wide sm:flex">
+            <Link href="/projects" className="transition-colors hover:text-accent">
+              work
+            </Link>
+            <Link href="/links" className="transition-colors hover:text-accent">
+              links
+            </Link>
+            <Link
+              href="/#contact"
+              className="rounded-full border border-foreground px-4 py-1.5 transition-colors hover:border-accent hover:text-accent"
+            >
+              reach out
+            </Link>
+          </nav>
+
           <ThemeToggle />
-        </nav>
+          <MobileMenu />
+        </div>
       </div>
     </header>
   );
