@@ -14,7 +14,7 @@ export default function ProjectsPage() {
       <RevealText as="h1" immediate className="text-clamp-xl lowercase">
         selected work
       </RevealText>
-      <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+      <p className="mt-6 max-w-xl text-base normal-case leading-relaxed text-muted sm:text-lg">
         A handful of Android and web projects — native apps, full-stack
         products, and everything in between.
       </p>

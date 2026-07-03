@@ -76,21 +76,21 @@ export default async function ProjectPage({
         <div className="space-y-12">
           <section>
             <h2 className="text-xs uppercase tracking-wide text-muted">Overview</h2>
-            <p className="mt-3 text-base leading-relaxed text-foreground sm:text-lg">
+            <p className="mt-3 text-base normal-case leading-relaxed text-foreground sm:text-lg">
               {project.overview}
             </p>
           </section>
 
           <section>
             <h2 className="text-xs uppercase tracking-wide text-muted">The problem</h2>
-            <p className="mt-3 text-base leading-relaxed text-foreground sm:text-lg">
+            <p className="mt-3 text-base normal-case leading-relaxed text-foreground sm:text-lg">
               {project.problem}
             </p>
           </section>
 
           <section>
             <h2 className="text-xs uppercase tracking-wide text-muted">The solution</h2>
-            <p className="mt-3 text-base leading-relaxed text-foreground sm:text-lg">
+            <p className="mt-3 text-base normal-case leading-relaxed text-foreground sm:text-lg">
               {project.solution}
             </p>
           </section>
@@ -99,7 +99,7 @@ export default async function ProjectPage({
             <h2 className="text-xs uppercase tracking-wide text-muted">Highlights</h2>
             <ul className="mt-4 space-y-3">
               {project.highlights.map((h) => (
-                <li key={h} className="flex items-start gap-3 text-base text-foreground">
+                <li key={h} className="flex items-start gap-3 text-base normal-case text-foreground">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   {h}
                 </li>

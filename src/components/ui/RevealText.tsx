@@ -3,6 +3,12 @@
 import { createElement, useEffect, useRef } from "react";
 import { ensureGsapPlugins, gsap, SplitText, prefersReducedMotion } from "@/lib/gsap";
 
+/**
+ * Char-level heading reveal. By default the reveal progress is scrubbed
+ * to scroll position (chars rise as the heading travels from the bottom
+ * of the viewport toward the top). `immediate` plays it once on mount
+ * instead (for above-the-fold text).
+ */
 export function RevealText({
   children,
   as = "h2",
@@ -28,24 +34,29 @@ export function RevealText({
 
         gsap.to(split.chars, {
           yPercent: 0,
-          duration: 0.9,
-          ease: "expo.out",
-          stagger: 0.015,
-          scrollTrigger: immediate ? undefined : { trigger: el, start: "top 85%" },
+          duration: 0.7,
+          ease: "expo.inOut",
+          stagger: { amount: 0.3 },
+          scrollTrigger: immediate
+            ? undefined
+            : {
+                trigger: el,
+                start: "top 110%",
+                end: "top 25%",
+                scrub: 0.4,
+              },
         });
       }, ref as React.RefObject<HTMLElement>);
 
       return ctx;
     };
 
-    // Above-the-fold headings split immediately; everything else only
-    // does the (layout-touching) SplitText work once it's about to
-    // enter the viewport, so we're not splitting every heading on load.
     if (immediate) {
       const ctx = runSplit();
       return () => ctx.revert();
     }
 
+    // defer the layout-heavy SplitText work until the heading approaches
     let ctx: ReturnType<typeof runSplit> | undefined;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -54,7 +65,7 @@ export function RevealText({
           observer.disconnect();
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "300px" }
     );
     observer.observe(el);
 
@@ -64,9 +75,5 @@ export function RevealText({
     };
   }, [immediate]);
 
-  // SplitText fragments the text into per-character spans and adds an
-  // aria-label with the original text for screen readers; role="text"
-  // is what makes that aria-label valid/announced (Safari/VoiceOver
-  // convention, also recognized by axe-core) on a non-widget element.
   return createElement(as, { ref, className, role: "text" }, children);
 }

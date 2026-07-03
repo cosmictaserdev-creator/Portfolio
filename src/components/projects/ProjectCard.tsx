@@ -26,7 +26,7 @@ export function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="flex flex-1 flex-col gap-4 p-6">
-        <p className="text-sm leading-relaxed text-muted">{project.tagline}</p>
+        <p className="text-sm normal-case leading-relaxed text-muted">{project.tagline}</p>
         <div className="mt-auto flex flex-wrap gap-2">
           {project.techStack.slice(0, 3).map((tech) => (
             <span

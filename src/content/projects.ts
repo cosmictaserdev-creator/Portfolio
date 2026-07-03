@@ -30,7 +30,7 @@ export const projects: Project[] = [
     year: "2025",
     role: "Solo developer — design, Android, backend",
     techStack: ["Kotlin", "Jetpack Compose", "Room", "WorkManager", "MVVM"],
-    gradient: ["#8b5cf6", "#22d3ee"],
+    gradient: ["#00218f", "#4364e0"],
     overview:
       "Orbit is a native Android habit tracker built around streaks, home-screen widgets and gentle nudges instead of guilt-trip notifications.",
     problem:
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     year: "2024",
     role: "Solo developer — Android",
     techStack: ["Kotlin", "Jetpack Compose", "Firebase", "ML Kit"],
-    gradient: ["#22d3ee", "#8b5cf6"],
+    gradient: ["#002ab5", "#7c96ff"],
     overview:
       "Pulse uses on-device text recognition to log expenses straight from a photo of a receipt, cutting manual entry to a couple of taps.",
     problem:
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     year: "2024",
     role: "Solo developer — full stack",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
-    gradient: ["#8b5cf6", "#f472b6"],
+    gradient: ["#001060", "#3550c9"],
     overview:
       "A fast, minimal weather dashboard with hyperlocal radar, hourly breakdowns and a UI that stays legible outdoors in direct sunlight.",
     problem:
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     year: "2023",
     role: "Solo developer — Kotlin Multiplatform",
     techStack: ["Kotlin Multiplatform", "Compose Multiplatform", "SQLDelight"],
-    gradient: ["#22d3ee", "#f472b6"],
+    gradient: ["#16247a", "#5a74e8"],
     overview:
       "A task and project manager sharing one Kotlin Multiplatform core between a native Android app and a Compose-for-Web dashboard.",
     problem:

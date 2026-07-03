@@ -38,7 +38,7 @@ export default function LinksPage() {
           >
             <span>
               <span className="block font-display text-lg lowercase">{link.label}</span>
-              <span className="block text-xs text-muted">{link.description}</span>
+              <span className="block text-xs normal-case text-muted">{link.description}</span>
             </span>
             <ArrowUpRight
               size={18}

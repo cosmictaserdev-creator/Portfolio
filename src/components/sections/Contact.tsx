@@ -1,15 +1,38 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Mail, Clock, ArrowDown, ArrowDownRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/icons/BrandIcons";
-import { RevealText } from "@/components/ui/RevealText";
-import { socialLinks } from "@/content/links";
 import { CONTACT_EMAIL } from "@/content/site";
 
-const iconMap = { github: GithubIcon, linkedin: LinkedinIcon, instagram: InstagramIcon } as const;
-
 type Status = "idle" | "sending" | "sent" | "error" | "unconfigured";
+
+const rows = [
+  {
+    icon: Mail,
+    label: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
+  },
+  {
+    icon: Clock,
+    label: "replies within 24 hours",
+  },
+] as const;
+
+// TODO: swap for your real profiles
+const socialRows = [
+  { icon: GithubIcon, label: "Github", href: "https://github.com/cosmictaser" },
+  {
+    icon: LinkedinIcon,
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/aryan-sharma-cosmictaser",
+  },
+  {
+    icon: InstagramIcon,
+    label: "Instagram",
+    href: "https://instagram.com/cosmictaser",
+  },
+] as const;
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -45,95 +68,121 @@ export function Contact() {
     }
   }
 
+  const buttonLabel =
+    status === "sending" ? "hang tight..." : status === "sent" ? "got it" : "send";
+
   return (
-    <section id="contact" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-20 sm:px-10 sm:py-28">
-      <div className="grid grid-cols-1 gap-14 lg:grid-cols-2">
+    <section
+      id="contact"
+      className="scroll-mt-24 px-6 py-28 sm:px-10 sm:py-40"
+    >
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 lg:grid-cols-2">
         <div>
-          <RevealText as="h2" className="text-clamp-lg lowercase">
-            let&apos;s build something
-          </RevealText>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-            Have a project in mind, or just want to talk shop? My inbox is
-            always open.
-          </p>
+          <span className="flex items-center gap-2 text-sm">
+            get in touch your way
+            <ArrowDown size={18} aria-hidden />
+          </span>
 
-          <a
-            href={`mailto:${CONTACT_EMAIL}`}
-            className="mt-8 inline-block font-display text-2xl lowercase text-accent transition-opacity hover:opacity-80 sm:text-3xl"
-          >
-            {CONTACT_EMAIL}
-          </a>
+          <div className="mt-10 flex flex-col gap-8 sm:flex-row sm:gap-16">
+            <div className="flex flex-col gap-5">
+              {rows.map((row) => {
+                const Icon = row.icon;
+                const content = (
+                  <>
+                    <Icon size={18} className="shrink-0 text-accent" />
+                    <span className="text-sm">{row.label}</span>
+                  </>
+                );
+                return "href" in row && row.href ? (
+                  <a
+                    key={row.label}
+                    href={row.href}
+                    className="flex items-center gap-3 transition-colors hover:text-accent"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={row.label} className="flex items-center gap-3">
+                    {content}
+                  </div>
+                );
+              })}
+            </div>
 
-          <div className="mt-10 flex gap-3">
-            {socialLinks
-              .filter((l) => l.icon === "github" || l.icon === "linkedin" || l.icon === "instagram")
-              .map((link) => {
-                const Icon = iconMap[link.icon as keyof typeof iconMap];
+            <div className="flex flex-col gap-5">
+              {socialRows.map((row) => {
+                const Icon = row.icon;
                 return (
                   <a
-                    key={link.label}
-                    href={link.href}
+                    key={row.label}
+                    href={row.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={link.label}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-border transition-colors hover:border-accent hover:text-accent"
+                    className="flex items-center gap-3 transition-colors hover:text-accent"
                   >
-                    <Icon size={18} />
+                    <Icon size={18} className="shrink-0 text-accent" />
+                    <span className="text-sm">{row.label}</span>
                   </a>
                 );
               })}
+            </div>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <input
-            name="name"
-            required
-            placeholder="your name"
-            className="rounded-2xl border border-border bg-surface px-5 py-4 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
-          />
-          <input
-            name="email"
-            type="email"
-            required
-            placeholder="your email"
-            className="rounded-2xl border border-border bg-surface px-5 py-4 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
-          />
-          <textarea
-            name="message"
-            required
-            rows={5}
-            placeholder="what are you building?"
-            className="resize-none rounded-2xl border border-border bg-surface px-5 py-4 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
-          />
+          <span className="flex items-center gap-2 text-sm">
+            <ArrowDownRight size={18} aria-hidden />
+            or my way
+          </span>
 
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="flex items-center justify-center gap-2 rounded-full bg-accent-solid px-6 py-4 text-sm font-medium text-white transition-transform hover:scale-[1.02] disabled:opacity-60"
-          >
-            {status === "sending" ? "sending..." : "send message"}
-            <Send size={16} />
-          </button>
+          <div className="mt-6 flex flex-col gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <input
+                name="name"
+                required
+                placeholder="NAME"
+                className="w-full border-b border-foreground bg-transparent px-1 py-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
+              />
+              <input
+                name="email"
+                type="email"
+                required
+                placeholder="EMAIL"
+                className="w-full border-b border-foreground bg-transparent px-1 py-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
+              />
+            </div>
+            <textarea
+              name="message"
+              required
+              rows={4}
+              placeholder="MESSAGE"
+              className="resize-none border-b border-foreground bg-transparent px-1 py-3 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent"
+            />
 
-          {status === "sent" && (
-            <p className="text-sm text-accent">Thanks — I&apos;ll get back to you soon.</p>
-          )}
-          {status === "unconfigured" && (
-            <p className="text-sm text-muted">
-              The form isn&apos;t wired up to an email service yet — please reach
-              out directly at{" "}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-accent">
-                {CONTACT_EMAIL}
-              </a>
-              .
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-sm text-red-400">
-              Something went wrong — email me directly at {CONTACT_EMAIL}.
-            </p>
-          )}
+            <button
+              type="submit"
+              disabled={status === "sending" || status === "sent"}
+              className="mt-4 self-start rounded-full bg-accent-solid px-10 py-3 text-sm text-white transition-transform hover:scale-105 disabled:opacity-70"
+            >
+              {buttonLabel}
+            </button>
+
+            {status === "unconfigured" && (
+              <p className="text-sm normal-case text-muted">
+                The form isn&apos;t wired to an email service yet — reach out
+                directly at{" "}
+                <a href={`mailto:${CONTACT_EMAIL}`} className="normal-case text-accent">
+                  {CONTACT_EMAIL}
+                </a>
+                .
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-sm normal-case text-red-500">
+                Something went wrong — email me directly at {CONTACT_EMAIL}.
+              </p>
+            )}
+          </div>
         </form>
       </div>
     </section>
