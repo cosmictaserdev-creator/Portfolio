@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { pillars } from "@/content/pillars";
 
@@ -8,12 +9,14 @@ export function Bento() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-10 sm:px-10">
       <div className="flex flex-wrap items-stretch gap-5">
-        <div className="relative min-h-[260px] flex-[1_1_280px] overflow-hidden rounded-[2.5rem] border border-border bg-gradient-to-br from-accent/20 via-surface to-accent-2/20">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-clamp-lg lowercase text-foreground/10">
-              cosmic
-            </span>
-          </div>
+        <div className="relative min-h-[260px] w-full max-w-[280px] flex-[1_1_280px] overflow-hidden rounded-[2.5rem] border border-border bg-surface">
+          <Image
+            src="/images/aryan-hero.png"
+            alt="Aryan Sharma"
+            fill
+            sizes="280px"
+            className="object-cover object-top"
+          />
         </div>
 
         {pillars.map((pillar) => {

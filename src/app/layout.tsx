@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Fredoka } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
@@ -7,10 +8,12 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SITE_URL, PERSON_NAME, PERSON_ALIAS, SITE_DESCRIPTION } from "@/content/site";
 
-const clashDisplay = localFont({
-  src: "./fonts/ClashDisplay-Variable.woff2",
-  variable: "--font-clash",
-  weight: "200 700",
+// Bold, rounded, geometric display face — free (OFL) and in the same
+// spirit as the chunky rounded headline type this design takes cues from.
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -88,7 +91,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${clashDisplay.variable} ${satoshi.variable}`}
+      className={`${fredoka.variable} ${satoshi.variable}`}
     >
       <head>
         <script
@@ -98,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <SmoothScrollProvider>
             <Header />
             <main className="flex-1">{children}</main>

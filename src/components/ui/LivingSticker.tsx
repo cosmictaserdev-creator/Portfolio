@@ -1,18 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { LucideIcon } from "lucide-react";
+import { GeoSymbol, type GeoSymbolId } from "@/components/icons/GeoSymbols";
 
 const CHANGE_PROBABILITY = 0.2;
-const INTERVAL_MS = 900;
+const INTERVAL_MS = 700;
 
 export function LivingSticker({
-  icons,
-  size = 52,
+  symbols,
+  size = 40,
   style,
   className = "",
 }: {
-  icons: LucideIcon[];
+  symbols: GeoSymbolId[];
   size?: number;
   style?: React.CSSProperties;
   className?: string;
@@ -38,8 +38,8 @@ export function LivingSticker({
       if (!visible.current) return;
       if (Math.random() < CHANGE_PROBABILITY) {
         setIndex((prev) => {
-          let next = Math.floor(Math.random() * icons.length);
-          if (next === prev && icons.length > 1) next = (next + 1) % icons.length;
+          let next = Math.floor(Math.random() * symbols.length);
+          if (next === prev && symbols.length > 1) next = (next + 1) % symbols.length;
           return next;
         });
       }
@@ -49,15 +49,13 @@ export function LivingSticker({
       observer.disconnect();
       clearInterval(interval);
     };
-  }, [icons.length]);
-
-  const Icon = icons[index] ?? icons[0];
+  }, [symbols.length]);
 
   return (
     <div
       ref={ref}
       style={{ width: size, height: size, ...style }}
-      className={`flex items-center justify-center rounded-2xl border border-border bg-surface/60 text-muted transition-transform duration-300 hover:scale-110 ${
+      className={`flex items-center justify-center text-muted/70 transition-transform duration-300 hover:scale-125 ${
         flashing ? "animate-sticker-flash text-accent" : ""
       } ${className}`}
       onMouseEnter={() => {
@@ -65,7 +63,7 @@ export function LivingSticker({
         window.setTimeout(() => setFlashing(false), 1200);
       }}
     >
-      <Icon size={size * 0.45} strokeWidth={1.5} />
+      <GeoSymbol id={symbols[index] ?? symbols[0]} width={size} height={size} />
     </div>
   );
 }
