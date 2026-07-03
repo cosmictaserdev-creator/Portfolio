@@ -4,7 +4,11 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/icons/BrandIcons";
 import { RevealText } from "@/components/ui/RevealText";
+import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { projects, getProjectBySlug } from "@/content/projects";
+
+// TODO: replace with real per-project screenshot sets
+const PLACEHOLDER_SCREENS = ["home screen", "detail view", "insights", "settings"];
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -109,6 +113,17 @@ export default async function ProjectPage({
         </div>
 
         <aside className="space-y-8">
+          <div>
+            <h2 className="text-xs uppercase tracking-wide text-muted">Gallery</h2>
+            <div className="mt-3">
+              <ProjectGallery
+                title={project.title}
+                gradient={project.gradient}
+                screens={PLACEHOLDER_SCREENS}
+              />
+            </div>
+          </div>
+
           <div>
             <h2 className="text-xs uppercase tracking-wide text-muted">Role</h2>
             <p className="mt-2 text-sm text-foreground">{project.role}</p>

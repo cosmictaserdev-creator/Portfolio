@@ -4,6 +4,7 @@ import { Fredoka } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { PageTransitions } from "@/components/providers/PageTransitions";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SITE_URL, PERSON_NAME, PERSON_ALIAS, SITE_DESCRIPTION } from "@/content/site";
@@ -103,6 +104,7 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <SmoothScrollProvider>
+            <PageTransitions />
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
