@@ -3,3 +3,10 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Explicit because this site was originally created for a different
+# framework (Astro) and Netlify's one-time framework auto-detection
+# never re-ran when the repo was swapped to Next.js — without this the
+# site gets served as static files and every route 404s.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
