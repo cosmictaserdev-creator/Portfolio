@@ -108,7 +108,7 @@ export function ProjectGallery({ title, gradient, screens }: Props) {
           return (
             <div
               key={label}
-              className="absolute left-1/2 top-1/2 h-52 w-28 rounded-xl border border-white/25 text-[13px] shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [transform:translate(-50%,-50%)_rotate(var(--rot))_translateY(var(--lift))] group-hover:[transform:translate(-50%,-50%)_rotate(var(--rot-wide))_translateY(var(--lift))] hover:!z-30 hover:[transform:translate(-50%,-62%)_rotate(var(--rot-wide))_scale(1.07)]"
+              className="absolute left-1/2 top-1/2 h-52 w-28 rounded-xl border border-white/25 text-[13px] shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [transform:translate(-50%,-50%)_rotate(var(--rot))_translateY(var(--lift))] group-hover:[transform:translate(-50%,-50%)_rotate(var(--rot-wide))_translateY(var(--lift))_scale(1.06)]"
               style={
                 {
                   zIndex: i,

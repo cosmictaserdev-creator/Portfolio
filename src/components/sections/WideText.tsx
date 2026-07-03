@@ -5,9 +5,9 @@ import { ensureGsapPlugins, gsap, prefersReducedMotion } from "@/lib/gsap";
 
 /**
  * One word split into three chunks spread across the full width at
- * staggered heights. Scroll scrubs them in from opposite corners with
- * rotation + blur, they assemble, then drift apart again as a parallax
- * while the section leaves — so the word never sits still.
+ * staggered heights. The inner element handles the assemble reveal and
+ * the outer wrapper handles the exit drift — separate elements so the
+ * two scrubbed tweens never fight over the same transform.
  */
 export function WideText() {
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -19,6 +19,7 @@ export function WideText() {
 
     const ctx = gsap.context(() => {
       const parts = gsap.utils.toArray<HTMLElement>(".wide-part");
+      const drifts = gsap.utils.toArray<HTMLElement>(".wide-drift");
 
       const froms = [
         { autoAlpha: 0, yPercent: -140, x: "20vw", rotation: -12, filter: "blur(12px)" },
@@ -26,8 +27,8 @@ export function WideText() {
         { autoAlpha: 0, yPercent: 140, x: "-20vw", rotation: 12, filter: "blur(12px)" },
       ];
 
+      // assemble on the way in (inner elements)
       parts.forEach((part, i) => {
-        // assemble on the way in
         gsap.fromTo(part, froms[i], {
           autoAlpha: 1,
           yPercent: 0,
@@ -43,19 +44,25 @@ export function WideText() {
             scrub: 0.4,
           },
         });
+      });
 
-        // gentle drift apart on the way out
-        gsap.to(part, {
-          xPercent: (i - 1) * 14,
-          yPercent: (i - 1) * -6,
-          ease: "none",
-          scrollTrigger: {
-            trigger: root,
-            start: "center 45%",
-            end: "bottom top",
-            scrub: 0.6,
-          },
-        });
+      // gentle drift apart on the way out (outer wrappers)
+      drifts.forEach((drift, i) => {
+        gsap.fromTo(
+          drift,
+          { xPercent: 0, yPercent: 0 },
+          {
+            xPercent: (i - 1) * 12,
+            yPercent: (i - 1) * -5,
+            ease: "none",
+            scrollTrigger: {
+              trigger: root,
+              start: "center 45%",
+              end: "bottom top",
+              scrub: 0.6,
+            },
+          }
+        );
       });
     }, root);
 
@@ -70,9 +77,15 @@ export function WideText() {
         </p>
 
         <h2 className="flex w-full flex-row justify-between text-clamp-xxl leading-[0.92] text-accent">
-          <div className="wide-part pb-3 will-change-transform">sea</div>
-          <div className="wide-part mt-24 pb-3 will-change-transform">mle</div>
-          <div className="wide-part mt-48 pb-3 will-change-transform">ss</div>
+          <div className="wide-drift will-change-transform">
+            <div className="wide-part pb-3 will-change-transform">sea</div>
+          </div>
+          <div className="wide-drift mt-24 will-change-transform">
+            <div className="wide-part pb-3 will-change-transform">mle</div>
+          </div>
+          <div className="wide-drift mt-48 will-change-transform">
+            <div className="wide-part pb-3 will-change-transform">ss</div>
+          </div>
         </h2>
 
         <p className="w-full max-w-none self-end pr-4 pt-4 text-right sm:pr-16">
