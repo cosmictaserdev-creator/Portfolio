@@ -1,8 +1,9 @@
 [build]
   command = "npm run build"
+  publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
 
 # Explicit because this site was originally created for a different
 # framework (Astro) and Netlify's one-time framework auto-detection
