@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Fredoka } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { PageTransitions } from "@/components/providers/PageTransitions";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SITE_URL, PERSON_NAME, PERSON_ALIAS, SITE_DESCRIPTION } from "@/content/site";
+import { CONVX } from "@/content/convx";
+import { GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL } from "@/content/links";
 
-// Bold, rounded, geometric display face — free (OFL) and in the same
-// spirit as the chunky rounded headline type this design takes cues from.
-const fredoka = Fredoka({
+// Expressive variable grotesque (OFL) — tight editorial spacing that holds
+// up at the oversized display sizes this design leans on.
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-heading",
-  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -35,6 +37,8 @@ export const metadata: Metadata = {
   keywords: [
     "Aryan Sharma",
     "cosmictaser",
+    "Convx",
+    "Convx music player",
     "Android developer",
     "Kotlin developer",
     "Jetpack Compose",
@@ -43,6 +47,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: PERSON_NAME }],
   creator: PERSON_NAME,
+  alternates: { canonical: SITE_URL },
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -59,6 +64,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 };
 
@@ -81,6 +87,7 @@ const jsonLd = {
     "Web Development",
     "Software Engineering",
   ],
+  sameAs: [GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL, CONVX.repoUrl],
 };
 
 export default function RootLayout({
@@ -92,14 +99,18 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fredoka.variable} ${satoshi.variable}`}
+      className={`${display.variable} ${satoshi.variable}`}
     >
       <head>
+        {/* release APK and avatars are fetched from GitHub — warm the connection */}
+        <link rel="dns-prefetch" href="https://github.com" />
+        <link rel="dns-prefetch" href="https://objects.githubusercontent.com" />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <GoogleAnalytics />
       </head>
       <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>

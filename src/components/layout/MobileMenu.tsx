@@ -6,9 +6,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/projects", label: "work" },
+  { href: "/convx", label: "convx" },
   { href: "/links", label: "links" },
-  { href: "/#contact", label: "reach out" },
+  { href: "/contact", label: "reach out" },
 ];
 
 export function MobileMenu() {

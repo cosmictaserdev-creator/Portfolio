@@ -1,60 +1,59 @@
 import { CONTACT_EMAIL } from "./site";
+import { CONVX } from "./convx";
 
-// TODO: swap these placeholder handles/URLs for your real profiles.
 export type SocialLink = {
   label: string;
   href: string;
-  icon: "github" | "linkedin" | "instagram" | "mail" | "file-text";
+  icon: "github" | "linkedin" | "instagram" | "discord" | "mail" | "file-text";
 };
 
+export const GITHUB_URL = "https://github.com/cosmictaserdev-creator";
+export const LINKEDIN_URL = "https://linkedin.com/in/aryan-sharma-cosmictaser";
+export const INSTAGRAM_URL = "https://instagram.com/cosmictaser";
+
 export const socialLinks: SocialLink[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com/cosmictaser",
-    icon: "github",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/aryan-sharma-cosmictaser",
-    icon: "linkedin",
-  },
-  {
-    label: "Instagram",
-    href: "https://instagram.com/cosmictaser",
-    icon: "instagram",
-  },
-  {
-    label: "Email",
-    href: `mailto:${CONTACT_EMAIL}`,
-    icon: "mail",
-  },
+  { label: "GitHub", href: GITHUB_URL, icon: "github" },
+  { label: "Discord", href: CONVX.discordUrl, icon: "discord" },
+  { label: "LinkedIn", href: LINKEDIN_URL, icon: "linkedin" },
+  { label: "Instagram", href: INSTAGRAM_URL, icon: "instagram" },
+  { label: "Email", href: `mailto:${CONTACT_EMAIL}`, icon: "mail" },
 ];
 
 export const linkTree = [
   {
-    label: "View my work",
-    href: "/projects",
-    description: "Android & software projects",
+    label: "Convx",
+    href: "/convx",
+    description: "Liquid Glass music player for Android",
+  },
+  {
+    label: "Download Convx",
+    href: CONVX.releasesUrl,
+    description: "Latest APK on GitHub Releases",
+  },
+  {
+    label: "Convx Discord",
+    href: CONVX.discordUrl,
+    description: "Community, support & release pings",
   },
   {
     label: "GitHub",
-    href: "https://github.com/cosmictaser",
+    href: GITHUB_URL,
     description: "Code & open source",
   },
   {
+    label: "Support on Ko-fi",
+    href: CONVX.kofiUrl,
+    description: "Buy me a coffee",
+  },
+  {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/aryan-sharma-cosmictaser",
+    href: LINKEDIN_URL,
     description: "Professional profile",
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/cosmictaser",
+    href: INSTAGRAM_URL,
     description: "@cosmictaser",
-  },
-  {
-    label: "Resume / CV",
-    href: "/resume.pdf",
-    description: "Download my latest resume",
   },
   {
     label: "Email me",
