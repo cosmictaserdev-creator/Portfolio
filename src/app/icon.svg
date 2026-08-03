@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    :root {
+      --bg: #00218f;
+      --fg: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #6d8dff;
+        --fg: #0a0a0f;
+      }
+    }
+  </style>
+  <rect width="64" height="64" rx="14" fill="var(--bg)" />
+  <!-- same almond + vesica pupil as the EyeCenterpiece section, filled
+       rather than stroked so it survives being rendered at 16px -->
+  <g transform="translate(5.96 15.02) scale(0.1132)">
+    <path
+      d="M18 150C70 62 148 18 230 18s160 44 212 132c-52 88-130 132-212 132S70 238 18 150Z"
+      fill="var(--fg)"
+    />
+    <path d="M172 150c32-32 84-32 116 0-32 32-84 32-116 0Z" fill="var(--bg)" />
+  </g>
+</svg>
