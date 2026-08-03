@@ -40,3 +40,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local code index
+.codegraph/
+
+# Source screenshots. These are copied into public/convx/ and public/images/,
+# which is what the site actually serves — keeping the originals out of git
+# avoids committing ~28MB of duplicate binaries into history forever.
+src/convx_images/
+src/app/me.jpg

@@ -11,3 +11,15 @@
 # site gets served as static files and every route 404s.
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# The placeholder project pages are gone — send any stale link to Convx
+# instead of a 404, so link equity and bookmarks survive.
+[[redirects]]
+  from = "/projects"
+  to = "/convx"
+  status = 301
+
+[[redirects]]
+  from = "/projects/*"
+  to = "/convx"
+  status = 301

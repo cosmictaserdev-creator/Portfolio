@@ -1,17 +1,25 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/content/projects";
 import { SITE_URL } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/projects", "/links"].map((path) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified: new Date(),
-  }));
+  const now = new Date();
 
-  const projectRoutes = projects.map((project) => ({
-    url: `${SITE_URL}/projects/${project.slug}`,
-    lastModified: new Date(),
-  }));
-
-  return [...staticRoutes, ...projectRoutes];
+  return [
+    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
+    { url: `${SITE_URL}/convx`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
+    { url: `${SITE_URL}/links`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    {
+      url: `${SITE_URL}/convx/privacy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/convx/terms`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+  ];
 }

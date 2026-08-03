@@ -10,7 +10,7 @@ const StickerField = dynamic(
   { ssr: false }
 );
 
-const WORDMARK = "aryan";
+const WORDMARK = "Aryan";
 
 export function Splash() {
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -69,9 +69,12 @@ export function Splash() {
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-center gap-6 sm:gap-10">
         <div className="min-w-0 flex-1">
+          {/* overflow-hidden masks the chars rising in, which otherwise crops
+              the descender on "y" — pad the box out, pull the same amount
+              back off the layout */}
           <h1
-            aria-label={`${WORDMARK} sharma — android & software developer`}
-            className="flex overflow-hidden font-display font-semibold lowercase leading-[0.9] tracking-tight text-accent"
+            aria-label="Aryan Sharma — Android &amp; software developer"
+            className="-mb-[0.16em] flex overflow-hidden pb-[0.16em] font-display font-semibold normal-case leading-[0.9] tracking-tight text-accent"
             style={{ fontSize: "clamp(4.5rem, 23vw, 19rem)" }}
           >
             {WORDMARK.split("").map((char, i) => (

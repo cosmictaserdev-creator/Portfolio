@@ -14,9 +14,10 @@ export default function LinksPage() {
     <div className="mx-auto flex min-h-[70vh] max-w-md flex-col items-center px-6 py-16 text-center sm:py-24">
       <div className="relative h-24 w-24 overflow-hidden rounded-full border border-border bg-surface">
         <Image
-          src="/images/aryan-hero.png"
+          src="/images/me.jpg"
           alt={PERSON_NAME}
           fill
+          priority
           sizes="96px"
           className="object-cover object-top"
         />

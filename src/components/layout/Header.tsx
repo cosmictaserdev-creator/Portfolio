@@ -16,15 +16,15 @@ export function Header() {
 
         <div className="flex items-center gap-4 sm:gap-6">
           <nav className="hidden items-center gap-6 text-sm tracking-wide sm:flex">
-            <Link href="/projects" className="transition-colors hover:text-accent">
-              work
+            <Link href="/convx" className="transition-colors hover:text-accent">
+              convx
             </Link>
             <Link href="/links" className="transition-colors hover:text-accent">
               links
             </Link>
             <Link
-              href="/#contact"
-              className="rounded-full border border-foreground px-4 py-1.5 transition-colors hover:border-accent hover:text-accent"
+              href="/contact"
+              className="glass rounded-full px-4 py-1.5 transition-transform hover:scale-105"
             >
               reach out
             </Link>

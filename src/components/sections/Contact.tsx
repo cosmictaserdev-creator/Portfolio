@@ -2,8 +2,15 @@
 
 import { useState } from "react";
 import { Mail, Clock, ArrowDown, ArrowDownRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/icons/BrandIcons";
+import {
+  GithubIcon,
+  LinkedinIcon,
+  InstagramIcon,
+  DiscordIcon,
+} from "@/components/icons/BrandIcons";
 import { CONTACT_EMAIL } from "@/content/site";
+import { GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL } from "@/content/links";
+import { CONVX } from "@/content/convx";
 
 type Status = "idle" | "sending" | "sent" | "error" | "unconfigured";
 
@@ -19,19 +26,11 @@ const rows = [
   },
 ] as const;
 
-// TODO: swap for your real profiles
 const socialRows = [
-  { icon: GithubIcon, label: "Github", href: "https://github.com/cosmictaser" },
-  {
-    icon: LinkedinIcon,
-    label: "LinkedIn",
-    href: "https://linkedin.com/in/aryan-sharma-cosmictaser",
-  },
-  {
-    icon: InstagramIcon,
-    label: "Instagram",
-    href: "https://instagram.com/cosmictaser",
-  },
+  { icon: GithubIcon, label: "Github", href: GITHUB_URL },
+  { icon: DiscordIcon, label: "Discord", href: CONVX.discordUrl },
+  { icon: LinkedinIcon, label: "LinkedIn", href: LINKEDIN_URL },
+  { icon: InstagramIcon, label: "Instagram", href: INSTAGRAM_URL },
 ] as const;
 
 export function Contact() {
@@ -162,7 +161,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={status === "sending" || status === "sent"}
-              className="mt-4 self-start rounded-full bg-accent-solid px-10 py-3 text-sm text-white transition-transform hover:scale-105 disabled:opacity-70"
+              className="glass glass-accent mt-4 self-start rounded-full px-10 py-3 text-sm text-white transition-transform hover:scale-105 disabled:opacity-70"
             >
               {buttonLabel}
             </button>

@@ -29,7 +29,8 @@ export async function POST(request: Request) {
   try {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
+      from:
+        process.env.CONTACT_FROM_EMAIL ?? "Portfolio Contact <onboarding@resend.dev>",
       to: CONTACT_EMAIL,
       replyTo: email,
       subject: `New message from ${name}`,

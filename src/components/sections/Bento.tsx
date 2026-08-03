@@ -46,11 +46,11 @@ export function Bento() {
         >
           <div ref={imgWrapRef} className="absolute inset-0 will-change-transform">
             <Image
-              src="/images/aryan-hero.png"
+              src="/images/me.jpg"
               alt="Aryan Sharma"
               fill
               sizes="300px"
-              className="object-cover object-top"
+              className="object-cover object-center"
             />
           </div>
           <span className="absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-surface/85 px-4 py-1 text-xs text-muted backdrop-blur-sm">
