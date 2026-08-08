@@ -1,7 +1,9 @@
-// Set NEXT_PUBLIC_SITE_URL in Netlify once a custom domain is attached;
-// canonicals, OG tags, sitemap and robots all follow from here.
+// Set NEXT_PUBLIC_SITE_URL during `opennextjs-cloudflare build` once the
+// Workers URL (or a custom domain) is known; canonicals, OG tags, sitemap
+// and robots all follow from here.
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://cosmic-taser.netlify.app";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+  "https://cosmictaser-portfolio.cosmictaser-dev.workers.dev";
 export const PERSON_NAME = "Aryan Sharma";
 export const PERSON_ALIAS = "cosmictaser";
 export const SITE_DESCRIPTION =
