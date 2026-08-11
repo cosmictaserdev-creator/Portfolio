@@ -3,7 +3,7 @@
 // and robots all follow from here.
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://cosmictaser-portfolio.cosmictaser-dev.workers.dev";
+  "https://cosmictaser.de5.net";
 export const PERSON_NAME = "Aryan Sharma";
 export const PERSON_ALIAS = "cosmictaser";
 export const SITE_DESCRIPTION =

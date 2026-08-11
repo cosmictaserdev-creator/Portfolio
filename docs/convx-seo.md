@@ -226,7 +226,7 @@ Plus `/links` (the link-in-bio page) now leads with Convx and the APK download.
       OG URL and sitemap entry follows from it.
 - [ ] Fill `CONVX.paypalUrl` in `src/content/convx.ts` — the PayPal card is
       hidden until it has a value.
-- [ ] Confirm the UPI ID `8439095289@ibl` is still current.
+- [ ] Confirm the UPI ID `cosmictaser@okicici` is still current.
 - [ ] Submit `https://cosmic-taser.netlify.app/sitemap.xml` in Google Search
       Console and Bing Webmaster Tools.
 - [ ] Paste the `/convx` URL into Discord, X and Slack once to confirm the OG

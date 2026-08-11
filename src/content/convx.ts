@@ -28,7 +28,7 @@ export const CONVX = {
   kofiUrl: "https://ko-fi.com/cosmictaser",
   // TODO: drop your PayPal.me handle in here and the button lights up.
   paypalUrl: "",
-  upi: "8439095289@ibl",
+  upi: "cosmictaser@okicici",
   license: "GPL-3.0",
   minAndroid: "Android 8.0+",
   // Fallbacks used only if the GitHub API is unreachable at build time.

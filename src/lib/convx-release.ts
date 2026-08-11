@@ -34,11 +34,17 @@ type Release = {
 
 const isApk = (a: Asset) => a.name.toLowerCase().endsWith(".apk");
 
-// Revalidate hourly: the numbers stay fresh without hammering GitHub's
-// 60-req/hour unauthenticated rate limit.
+// Revalidate hourly. Builds run on shared GitHub Actions runner IPs whose
+// unauthenticated quota is always exhausted — so authenticate with the
+// workflow's GITHUB_TOKEN when one is present (free, 1000 req/hr).
 const gh = (path: string) =>
   fetch(`https://api.github.com/repos/${CONVX.repo}${path}`, {
-    headers: { Accept: "application/vnd.github+json" },
+    headers: {
+      Accept: "application/vnd.github+json",
+      ...(process.env.GITHUB_TOKEN
+        ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+        : {}),
+    },
     next: { revalidate: 3600 },
   });
 
