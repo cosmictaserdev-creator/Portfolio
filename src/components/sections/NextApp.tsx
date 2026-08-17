@@ -72,7 +72,7 @@ export function NextApp() {
       </div>
 
       <div className="relative flex flex-col items-center gap-4 text-center">
-        <p>enough about me — let&apos;s talk about your</p>
+        <p>enough about me, let&apos;s talk about your</p>
         <RevealText
           as="h2"
           className="text-clamp-xxl lowercase leading-[0.92] text-accent"

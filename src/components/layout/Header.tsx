@@ -19,6 +19,9 @@ export function Header() {
             <Link href="/convx" className="transition-colors hover:text-accent">
               convx
             </Link>
+            <Link href="/whispry" className="transition-colors hover:text-accent">
+              whispry
+            </Link>
             <Link href="/links" className="transition-colors hover:text-accent">
               links
             </Link>

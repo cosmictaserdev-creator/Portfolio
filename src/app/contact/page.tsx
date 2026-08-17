@@ -6,7 +6,7 @@ import { CONVX } from "@/content/convx";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Get in touch with ${PERSON_NAME} (cosmictaser) — freelance Android & software developer, maker of Convx. Project work, Convx bug reports and everything in between.`,
+  description: `Get in touch with ${PERSON_NAME} (cosmictaser), freelance Android & software developer and maker of Convx. Project work, Convx bug reports and everything in between.`,
   alternates: { canonical: `${SITE_URL}/contact` },
 };
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
         </RevealText>
         <p className="mt-6 max-w-[56ch] text-base normal-case leading-relaxed text-muted sm:text-lg">
           Freelance work, a feature that needs building, a bug in Convx, or just
-          a question — the form goes straight to my inbox and I usually reply
+          a question. The form goes straight to my inbox and I usually reply
           within a day.
         </p>
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
           <div className="rounded-[2rem] border border-border bg-surface p-6">
             <h2 className="font-display text-xl lowercase text-accent">project work</h2>
             <p className="mt-2 text-sm normal-case leading-relaxed text-muted">
-              Android apps in Kotlin &amp; Compose. Use the form — a rough
+              Android apps in Kotlin &amp; Compose. Use the form, a rough
               scope and timeline is enough to start.
             </p>
           </div>

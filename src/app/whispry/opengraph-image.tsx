@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Convx, Liquid Glass music player for Android";
+export const alt = "Whispry, hold-to-talk voice transcription for Android";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,7 +15,7 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "linear-gradient(135deg, #05060f 0%, #0d1440 55%, #00218f 100%)",
+          background: "linear-gradient(135deg, #05100a 0%, #103a1a 55%, #3f8f3a 100%)",
           color: "#f5f5f7",
           fontFamily: "sans-serif",
         }}
@@ -26,7 +26,7 @@ export default function OgImage() {
               width: 12,
               height: 12,
               borderRadius: 999,
-              background: "#6d8dff",
+              background: "#8ee06b",
               display: "flex",
             }}
           />
@@ -35,15 +35,15 @@ export default function OgImage() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 168, fontWeight: 700, letterSpacing: -6, lineHeight: 1 }}>
-            convx
+            whispry
           </div>
-          <div style={{ fontSize: 42, marginTop: 18, color: "#c9d2ff", lineHeight: 1.25 }}>
-            Liquid Glass music player for Android
+          <div style={{ fontSize: 42, marginTop: 18, color: "#cdeec0", lineHeight: 1.25 }}>
+            Hold-to-talk voice transcription for Android
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, opacity: 0.75 }}>
-          <div style={{ display: "flex" }}>real backdrop blur · synced lyrics · zero telemetry</div>
+          <div style={{ display: "flex" }}>volume key · floating widget · keyboard trigger</div>
           <div style={{ display: "flex" }}>cosmictaser</div>
         </div>
       </div>

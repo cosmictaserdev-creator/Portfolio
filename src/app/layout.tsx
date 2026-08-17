@@ -10,6 +10,7 @@ import { Footer } from "@/components/layout/Footer";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SITE_URL, PERSON_NAME, PERSON_ALIAS, SITE_DESCRIPTION } from "@/content/site";
 import { CONVX } from "@/content/convx";
+import { WHISPRY } from "@/content/whispry";
 import { GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL } from "@/content/links";
 
 // Expressive variable grotesque (OFL) — tight editorial spacing that holds
@@ -30,7 +31,7 @@ const satoshi = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${PERSON_NAME} — ${PERSON_ALIAS} | Android & Software Developer`,
+    default: `${PERSON_NAME}, ${PERSON_ALIAS} | Android & Software Developer`,
     template: `%s | ${PERSON_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -39,6 +40,8 @@ export const metadata: Metadata = {
     "cosmictaser",
     "Convx",
     "Convx music player",
+    "Whispry",
+    "Whispry voice transcription",
     "Android developer",
     "Kotlin developer",
     "Jetpack Compose",
@@ -51,14 +54,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_URL,
-    siteName: `${PERSON_NAME} — ${PERSON_ALIAS}`,
-    title: `${PERSON_NAME} — ${PERSON_ALIAS} | Android & Software Developer`,
+    siteName: `${PERSON_NAME}, ${PERSON_ALIAS}`,
+    title: `${PERSON_NAME}, ${PERSON_ALIAS} | Android & Software Developer`,
     description: SITE_DESCRIPTION,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${PERSON_NAME} — ${PERSON_ALIAS}`,
+    title: `${PERSON_NAME}, ${PERSON_ALIAS}`,
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -87,7 +90,7 @@ const jsonLd = {
     "Web Development",
     "Software Engineering",
   ],
-  sameAs: [GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL, CONVX.repoUrl],
+  sameAs: [GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL, CONVX.repoUrl, WHISPRY.repoUrl],
 };
 
 export default function RootLayout({

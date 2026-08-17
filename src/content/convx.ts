@@ -9,16 +9,17 @@ import {
   Download,
   RefreshCw,
 } from "lucide-react";
+import type { Shot } from "@/content/media";
 
 // Single source of truth for everything Convx on this site. The live
 // bits (version, download counts, stars) are fetched from the GitHub
-// API at build/revalidate time — see @/lib/convx-release.
+// API at build/revalidate time — see @/lib/github-release.
 
 export const CONVX = {
   name: "Convx",
   tagline: "An iOS-inspired, Liquid Glass music player for Android.",
   blurb:
-    "Convx is a free, open-source music player that streams the full YouTube Music catalogue through a UI built on real backdrop blur and refraction — frosted glass chrome, springy iOS-style motion, and colours pulled live from whatever's playing. No ads, no telemetry, no account required.",
+    "Convx is a free, open-source music player that streams the full YouTube Music catalogue through a UI built on real backdrop blur and refraction: frosted glass chrome, springy iOS-style motion, and colours pulled live from whatever's playing. No ads, no telemetry, no account required.",
   repo: "cosmictaserdev-creator/Convx",
   repoUrl: "https://github.com/cosmictaserdev-creator/Convx",
   releasesUrl: "https://github.com/cosmictaserdev-creator/Convx/releases",
@@ -50,7 +51,7 @@ export const features: Feature[] = [
     icon: Sparkles,
     subtitle: "The look",
     title: "liquid\nglass",
-    body: "Every surface — nav bar, sheets, floating buttons — samples the pixels behind it and blurs, refracts and tints them in real time. Not a flat translucent overlay: actual backdrop capture.",
+    body: "Every surface (nav bar, sheets, floating buttons) samples the pixels behind it and blurs, refracts and tints them in real time. Not a flat translucent overlay: actual backdrop capture.",
     points: [
       "Real-time backdrop blur & refraction",
       "Bouncy rubber-band overscroll, blurred page transitions",
@@ -86,12 +87,12 @@ export const features: Feature[] = [
     icon: ShieldCheck,
     subtitle: "The fine print",
     title: "zero\ntelemetry",
-    body: "No trackers, no analytics, no background services watching you. Your library, history and preferences never leave the device — there is nowhere for them to go.",
+    body: "No trackers, no analytics, no background services watching you. Your library, history and preferences never leave the device. There is nowhere for them to go.",
     points: [
       "No data collection, at all",
       "100% local library and preferences",
       "Open source under GPL-3.0",
-      "In-app updater — no store required",
+      "In-app updater, no store required",
     ],
   },
 ];
@@ -121,60 +122,53 @@ export const miniFeatures: MiniFeature[] = [
   },
 ];
 
-export type Shot = {
-  src: string;
-  alt: string;
-  caption: string;
-  orientation: "portrait" | "landscape";
-};
-
 export const phoneShots: Shot[] = [
   {
     src: "/convx/home-mobile.png",
     alt: "Convx home screen with quick picks and the floating glass mini player",
-    caption: "home — quick picks, mixes, floating glass nav",
+    caption: "home: quick picks, mixes, floating glass nav",
     orientation: "portrait",
   },
   {
     src: "/convx/lyrics-mobile.png",
     alt: "Convx synced lyrics highlighting the current line word by word",
-    caption: "lyrics — word-by-word highlighting",
+    caption: "lyrics: word-by-word highlighting",
     orientation: "portrait",
   },
   {
     src: "/convx/player-mobile.png",
     alt: "Convx player screen showing FLAC quality badge and output device",
-    caption: "player — codec badge, output device",
+    caption: "player: codec badge, output device",
     orientation: "portrait",
   },
   {
     src: "/convx/artist-mobile.png",
     alt: "Convx artist page for Clean Bandit with subscriber and monthly listener counts",
-    caption: "artist — stats, bio, top songs",
+    caption: "artist: stats, bio, top songs",
     orientation: "portrait",
   },
   {
     src: "/convx/library-grid.png",
     alt: "Convx library grid with liked, downloaded, top 50 and cached playlists",
-    caption: "library — liked, downloaded, cached",
+    caption: "library: liked, downloaded, cached",
     orientation: "portrait",
   },
   {
     src: "/convx/explore-mobile.png",
     alt: "Convx explore screen with genre and mood tiles",
-    caption: "explore — moods & moments",
+    caption: "explore: moods & moments",
     orientation: "portrait",
   },
   {
     src: "/convx/discover-mobile.png",
     alt: "Convx daily discover carousel and YouTube playlists",
-    caption: "discover — daily picks from your taste",
+    caption: "discover: daily picks from your taste",
     orientation: "portrait",
   },
   {
     src: "/convx/artist-material-you.png",
     alt: "Convx artist page tinted purple by Material You colour extraction",
-    caption: "material you — colour from the artwork",
+    caption: "material you: colour from the artwork",
     orientation: "portrait",
   },
   {
@@ -186,7 +180,7 @@ export const phoneShots: Shot[] = [
   {
     src: "/convx/genre-mobile.png",
     alt: "Convx hip-hop genre page with playlist tiles",
-    caption: "genres — curated playlist tiles",
+    caption: "genres: curated playlist tiles",
     orientation: "portrait",
   },
   {
@@ -198,19 +192,19 @@ export const phoneShots: Shot[] = [
   {
     src: "/convx/library-songs.png",
     alt: "Convx library song list filtered to songs",
-    caption: "library — songs, videos, albums, artists",
+    caption: "library: songs, videos, albums, artists",
     orientation: "portrait",
   },
   {
     src: "/convx/search-mobile.png",
     alt: "Convx search screen with live suggestions",
-    caption: "search — live suggestions",
+    caption: "search: live suggestions",
     orientation: "portrait",
   },
   {
     src: "/convx/artist-chrystal.png",
     alt: "Convx artist page tinted blue from the artist photo",
-    caption: "artist — adaptive tint per page",
+    caption: "artist: adaptive tint per page",
     orientation: "portrait",
   },
 ];
@@ -219,37 +213,37 @@ export const tabletShots: Shot[] = [
   {
     src: "/convx/home-tablet.png",
     alt: "Convx on a tablet with a collapsible glass sidebar and quick picks grid",
-    caption: "tablet home — collapsible glass sidebar",
+    caption: "tablet home: collapsible glass sidebar",
     orientation: "landscape",
   },
   {
     src: "/convx/player-tablet.png",
     alt: "Convx tablet player with split artwork and controls layout",
-    caption: "tablet player — split layout",
+    caption: "tablet player: split layout",
     orientation: "landscape",
   },
   {
     src: "/convx/lyrics-tablet.png",
     alt: "Convx tablet lyrics view alongside playback controls",
-    caption: "tablet lyrics — side-by-side",
+    caption: "tablet lyrics: side-by-side",
     orientation: "landscape",
   },
   {
     src: "/convx/vinyl-tablet.png",
     alt: "Convx vinyl record artwork mode on a tablet",
-    caption: "vinyl mode — spinning artwork",
+    caption: "vinyl mode: spinning artwork",
     orientation: "landscape",
   },
   {
     src: "/convx/playlist-tablet.png",
     alt: "Convx custom hip-hop playlist page on a tablet",
-    caption: "playlists — custom covers & order",
+    caption: "playlists: custom covers & order",
     orientation: "portrait",
   },
   {
     src: "/convx/playlist-good-tablet.png",
     alt: "Convx custom playlist page with editable cover art",
-    caption: "playlists — editable cover art",
+    caption: "playlists: editable cover art",
     orientation: "portrait",
   },
 ];
@@ -278,7 +272,7 @@ export const architecture = [
   },
   {
     title: "playback",
-    body: "A Media3 ExoPlayer foreground service — notification and lock-screen controls, Android Auto, gapless and crossfade.",
+    body: "A Media3 ExoPlayer foreground service: notification and lock-screen controls, Android Auto, gapless and crossfade.",
   },
   {
     title: "data",
@@ -289,7 +283,7 @@ export const architecture = [
 export const faq = [
   {
     q: "Is Convx free?",
-    a: "Yes. Convx is free and open source under GPL-3.0. There are no ads, no subscription and no paid tier — support is entirely optional.",
+    a: "Yes. Convx is free and open source under GPL-3.0. There are no ads, no subscription and no paid tier. Support is entirely optional.",
   },
   {
     q: "Which Android versions are supported?",
@@ -313,6 +307,6 @@ export const faq = [
   },
   {
     q: "How can I report a bug or request a feature?",
-    a: "Open an issue on GitHub, or drop into the Discord — both are linked at the bottom of this page. Pull requests are welcome too.",
+    a: "Open an issue on GitHub, or drop into the Discord. Both are linked at the bottom of this page. Pull requests are welcome too.",
   },
 ];

@@ -11,7 +11,7 @@ type Item = { q: string; a: string };
  * answers need to animate. Answers stay in the DOM either way, so crawlers
  * (and the FAQPage JSON-LD) see the full text regardless of open state.
  */
-export function ConvxFaq({ items }: { items: Item[] }) {
+export function Faq({ items }: { items: Item[] }) {
   const [open, setOpen] = useState<number | null>(0);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);

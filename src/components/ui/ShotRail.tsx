@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ensureGsapPlugins, gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
-import type { Shot } from "@/content/convx";
+import type { Shot } from "@/content/media";
 
 /**
  * Screenshot rail. On desktop the section pins and the row scrubs
@@ -58,8 +58,13 @@ export function ShotRail({ shots }: { shots: Shot[] }) {
       };
     });
 
-    // images settle after the fonts/layout do — recalc once everything is in
+    // a web-font swap reflows everything above this section after
+    // ScrollTrigger has already cached its pin start position, which is
+    // what makes the pin engage at the wrong scroll offset ("mid scroll")
+    // the first time through — refresh once fonts (and, as a fallback,
+    // the rest of the page) are actually settled.
     const onLoad = () => ScrollTrigger.refresh();
+    document.fonts.ready.then(onLoad);
     window.addEventListener("load", onLoad);
 
     return () => {

@@ -6,7 +6,7 @@ import { SITE_URL, CONTACT_EMAIL } from "@/content/site";
 export const metadata: Metadata = {
   title: "Convx privacy policy",
   description:
-    "Convx collects nothing. No telemetry, no analytics, no accounts — your library, history and settings stay on your device. Full privacy policy.",
+    "Convx collects nothing. No telemetry, no analytics, no accounts. Your library, history and settings stay on your device. Full privacy policy.",
   alternates: { canonical: `${SITE_URL}/convx/privacy` },
 };
 
@@ -21,7 +21,7 @@ export default function ConvxPrivacyPage() {
           heading: "the short version",
           body: [
             "Convx does not collect, store, transmit or sell any personal data. There is no account system, no analytics SDK, no crash reporter and no background service watching what you do.",
-            "Everything Convx knows about you — your library, playlists, listening history, downloads and settings — is stored locally on your device and is deleted when you uninstall the app.",
+            "Everything Convx knows about you (your library, playlists, listening history, downloads and settings) is stored locally on your device and is deleted when you uninstall the app.",
           ],
         },
         {

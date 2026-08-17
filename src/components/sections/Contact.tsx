@@ -168,7 +168,7 @@ export function Contact() {
 
             {status === "unconfigured" && (
               <p className="text-sm normal-case text-muted">
-                The form isn&apos;t wired to an email service yet — reach out
+                The form isn&apos;t wired to an email service yet. Reach out
                 directly at{" "}
                 <a href={`mailto:${CONTACT_EMAIL}`} className="normal-case text-accent">
                   {CONTACT_EMAIL}
@@ -178,7 +178,7 @@ export function Contact() {
             )}
             {status === "error" && (
               <p className="text-sm normal-case text-red-500">
-                Something went wrong — email me directly at {CONTACT_EMAIL}.
+                Something went wrong. Email me directly at {CONTACT_EMAIL}.
               </p>
             )}
           </div>

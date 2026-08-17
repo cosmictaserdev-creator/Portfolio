@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Download, MessageCircle } from "lucide-react";
 import { GithubIcon } from "@/components/icons/BrandIcons";
 import { ensureGsapPlugins, gsap, prefersReducedMotion } from "@/lib/gsap";
-import { Aurora } from "@/components/convx/Aurora";
+import { Aurora } from "@/components/ui/Aurora";
 import { CONVX } from "@/content/convx";
 
 const WORDMARK = "Convx";
@@ -93,13 +93,13 @@ export function ConvxHero({ version, apkUrl, apkSizeMb, stats }: Props) {
               </span>
             ))}
             <span className="sr-only">
-              Convx — Liquid Glass music player for Android
+              Convx, Liquid Glass music player for Android
             </span>
           </h1>
 
           <p className="convx-rise mt-5 max-w-[46ch] text-sm leading-relaxed text-muted sm:text-base">
             {CONVX.tagline} Real backdrop blur, springy motion, the whole YouTube
-            Music catalogue — no ads, no telemetry, no account.
+            Music catalogue, no ads, no telemetry, no account.
           </p>
 
           <div className="convx-rise mt-9 flex flex-wrap items-center gap-3">

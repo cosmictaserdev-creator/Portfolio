@@ -1,61 +1,51 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Download,
-  MessageCircle,
-  Coffee,
-  Wallet,
-  ArrowUpRight,
-  Bug,
-  Scale,
-} from "lucide-react";
+import { Download, Coffee, Wallet, ArrowUpRight, Bug, Scale } from "lucide-react";
 import { GithubIcon } from "@/components/icons/BrandIcons";
 import { RevealText } from "@/components/ui/RevealText";
 import { Statement } from "@/components/sections/Statement";
-import { ConvxHero } from "@/components/convx/ConvxHero";
-import { Aurora } from "@/components/ui/Aurora";
 import { Marquee } from "@/components/ui/Marquee";
 import { ShotRail } from "@/components/ui/ShotRail";
 import { Faq } from "@/components/ui/Faq";
+import { WhispryHero } from "@/components/whispry/WhispryHero";
 import {
-  CONVX,
+  WHISPRY,
   features,
   miniFeatures,
   phoneShots,
-  tabletShots,
   stack,
   architecture,
   faq,
-} from "@/content/convx";
+} from "@/content/whispry";
 import { getReleaseInfo, formatCount, highlightsFrom } from "@/lib/github-release";
 import { SITE_URL, PERSON_NAME } from "@/content/site";
 
-// 45 chars — fits Google's ~60ch cut with the keyword up front.
-const TITLE = "Convx: Liquid Glass Music Player for Android";
-// 148 chars.
+// 46 chars.
+const TITLE = "Whispry: Voice Transcription for Android";
+// 150 chars.
 const DESCRIPTION =
-  "Convx is a free, open-source Android music player with a Liquid Glass UI, streaming YouTube Music ad-free. Download the latest APK from GitHub.";
+  "Whispry is a free, open-source Android app for hold-to-talk voice transcription. Dictate anywhere with your own AI key. Download the latest APK.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESCRIPTION,
   keywords: [
-    "Convx",
-    "Convx music player",
-    "Convx Android app",
-    "Convx APK",
-    "Liquid Glass music player Android",
-    "iOS style music player Android",
-    "Jetpack Compose music player open source",
-    "YouTube Music streaming Android app",
-    "open source Android music player",
-    "ad-free music player Android",
+    "Whispry",
+    "Whispry Android app",
+    "Whispry APK",
+    "voice transcription Android",
+    "hold to talk dictation",
+    "speech to text Android app",
+    "Jetpack Compose voice app",
+    "open source dictation app",
+    "Groq transcription app",
+    "AI voice typing Android",
   ],
-  alternates: { canonical: `${SITE_URL}/convx` },
+  alternates: { canonical: `${SITE_URL}/whispry` },
   openGraph: {
     type: "website",
-    url: `${SITE_URL}/convx`,
+    url: `${SITE_URL}/whispry`,
     siteName: `${PERSON_NAME}, cosmictaser`,
     title: TITLE,
     description: DESCRIPTION,
@@ -67,8 +57,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function ConvxPage() {
-  const release = await getReleaseInfo(CONVX);
+export default async function WhispryPage() {
+  const release = await getReleaseInfo(WHISPRY);
   const highlights = highlightsFrom(release.notes);
 
   const stats = [
@@ -82,14 +72,14 @@ export default async function ConvxPage() {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: CONVX.name,
+      name: WHISPRY.name,
       operatingSystem: "Android 8.0+",
-      applicationCategory: "MultimediaApplication",
-      description: CONVX.blurb,
+      applicationCategory: "UtilitiesApplication",
+      description: WHISPRY.blurb,
       softwareVersion: release.version,
       downloadUrl: release.apkUrl,
-      url: `${SITE_URL}/convx`,
-      license: "https://www.gnu.org/licenses/gpl-3.0.html",
+      url: `${SITE_URL}/whispry`,
+      license: "https://www.gnu.org/licenses/agpl-3.0.html",
       author: { "@type": "Person", name: PERSON_NAME, url: SITE_URL },
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     },
@@ -105,13 +95,13 @@ export default async function ConvxPage() {
   ];
 
   return (
-    <>
+    <div className="theme-whispry">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <ConvxHero
+      <WhispryHero
         version={release.version}
         apkUrl={release.apkUrl}
         apkSizeMb={release.apkSizeMb}
@@ -120,22 +110,22 @@ export default async function ConvxPage() {
 
       <Marquee
         items={[
-          "liquid glass",
-          "synced lyrics",
-          "offline downloads",
-          "lossless audio",
-          "auto-dj mixing",
-          "listen together",
-          "android auto",
+          "hold to talk",
+          "bring your own key",
+          "ai formatting",
+          "hinglish output",
+          "text expander",
+          "memory bank",
           "zero telemetry",
-          "material you",
+          "keyboard trigger",
+          "floating widget",
         ]}
       />
 
       <Statement
-        intro="a music player built around one idea"
-        lines={["glass", "you can", "see through"]}
-        outro="every surface samples the pixels behind it, then blurs and refracts them in real time."
+        intro="an app built around one habit"
+        lines={["talk it out,", "whispry", "writes it right"]}
+        outro="a single trigger (volume key, floating widget or keyboard button) types a formatted transcript straight into whatever app you're in."
       />
 
       {/* ---------------- features ---------------- */}
@@ -181,10 +171,10 @@ export default async function ConvxPage() {
         </div>
       </section>
 
-      {/* ---------------- phone gallery ---------------- */}
+      {/* ---------------- screenshot gallery ---------------- */}
       <section id="screens" className="scroll-mt-24 py-24 sm:py-32">
         <div className="mx-auto mb-14 flex max-w-6xl flex-col items-center gap-3 px-6 text-center sm:px-10">
-          <p>fourteen screens, one design language</p>
+          <p>seven screens, one trigger philosophy</p>
           <RevealText as="h2" className="text-clamp-xxl lowercase leading-[0.92] text-accent">
             see it
           </RevealText>
@@ -209,22 +199,6 @@ export default async function ConvxPage() {
             );
           })}
         </div>
-      </section>
-
-      {/* ---------------- tablet ---------------- */}
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto mb-12 flex max-w-6xl flex-col gap-3 px-6 sm:px-10">
-          <p>and it does not fall apart on a big screen</p>
-          <RevealText as="h2" className="text-clamp-xl lowercase leading-[0.92] text-accent">
-            tablet ready
-          </RevealText>
-          <p className="mt-2 max-w-[52ch] text-sm normal-case leading-relaxed text-muted">
-            A collapsible glass sidebar with its own blur tuning, a split player
-            layout, side-by-side lyrics, and a capped-width mini player so
-            controls stay in reach instead of stretching across 12 inches.
-          </p>
-        </div>
-        <ShotRail shots={tabletShots} />
       </section>
 
       {/* ---------------- under the hood ---------------- */}
@@ -252,7 +226,7 @@ export default async function ConvxPage() {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href={CONVX.repoUrl}
+                href={WHISPRY.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-sm transition-colors hover:border-accent hover:text-accent"
@@ -261,7 +235,7 @@ export default async function ConvxPage() {
                 read the code
               </a>
               <a
-                href={`${CONVX.repoUrl}/blob/main/CONTRIBUTING.md`}
+                href={`${WHISPRY.repoUrl}/blob/master/CONTRIBUTING.md`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
@@ -305,7 +279,7 @@ export default async function ConvxPage() {
                 </h2>
               </div>
               <a
-                href={CONVX.releasesUrl}
+                href={WHISPRY.releasesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm transition-colors hover:text-accent"
@@ -338,8 +312,6 @@ export default async function ConvxPage() {
         id="download"
         className="relative isolate scroll-mt-24 overflow-hidden border-y border-border px-6 py-24 sm:px-10 sm:py-32"
       >
-        <Aurora />
-
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-[1fr_auto]">
           <div>
             <p>ready when you are</p>
@@ -347,20 +319,21 @@ export default async function ConvxPage() {
               as="h2"
               className="mt-3 text-clamp-xxl lowercase leading-[0.92] text-accent"
             >
-              get convx
+              get whispry
             </RevealText>
 
             <p className="mt-6 max-w-[48ch] text-sm normal-case leading-relaxed text-muted">
-              Download the APK, allow installs from unknown sources, and you&apos;re
-              done. Convx checks GitHub for updates itself and installs them in
-              app, so you never need this page again.
+              Download the APK, allow installs from unknown sources, add your
+              AI provider key in Settings, and you&apos;re dictating. Whispry
+              checks GitHub for updates itself, so you never need this page
+              again.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <a
                 href={release.apkUrl}
                 className="glass glass-accent group flex items-center gap-3 rounded-full px-8 py-4 text-sm text-white transition-transform hover:scale-[1.03]"
-                data-analytics="convx-download-footer"
+                data-analytics="whispry-download-footer"
               >
                 <Download size={18} className="transition-transform group-hover:translate-y-0.5" />
                 download {release.version}
@@ -369,7 +342,7 @@ export default async function ConvxPage() {
                 ) : null}
               </a>
               <a
-                href={CONVX.releasesUrl}
+                href={WHISPRY.releasesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass flex items-center gap-2 rounded-full px-6 py-4 text-sm transition-transform hover:scale-[1.03]"
@@ -381,9 +354,9 @@ export default async function ConvxPage() {
 
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs text-muted">
               <span className="flex items-center gap-2">
-                <Scale size={14} /> {CONVX.license}
+                <Scale size={14} /> {WHISPRY.license}
               </span>
-              <span>{CONVX.minAndroid}</span>
+              <span>{WHISPRY.minAndroid}</span>
               <span>
                 {formatCount(release.totalDownloads)} downloads and counting
               </span>
@@ -392,10 +365,10 @@ export default async function ConvxPage() {
 
           <div className="mx-auto w-[58%] max-w-[260px] lg:w-[260px]">
             <Image
-              src="/convx/player-mobile.png"
-              alt="Convx player screen"
-              width={1245}
-              height={2359}
+              src="/whispry/home.png"
+              alt="Whispry home screen"
+              width={1480}
+              height={2800}
               sizes="260px"
               className="shot-shadow h-auto w-full"
             />
@@ -406,7 +379,7 @@ export default async function ConvxPage() {
       {/* ---------------- community & support ---------------- */}
       <section id="community" className="scroll-mt-24 px-6 py-24 sm:px-10 sm:py-32">
         <div className="mx-auto max-w-6xl">
-          <p>convx is free and always will be</p>
+          <p>whispry is free and always will be</p>
           <RevealText
             as="h2"
             className="mt-3 text-clamp-xl lowercase leading-[0.92] text-accent"
@@ -417,49 +390,31 @@ export default async function ConvxPage() {
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: MessageCircle,
-                label: "discord",
-                body: "Feature requests, bug chat, early builds and release pings.",
-                href: CONVX.discordUrl,
-                cta: "join the server",
-              },
-              {
                 icon: GithubIcon,
                 label: "github",
                 body: "Source, releases and the issue tracker. Pull requests welcome.",
-                href: CONVX.repoUrl,
+                href: WHISPRY.repoUrl,
                 cta: "open the repo",
               },
               {
                 icon: Bug,
                 label: "report a bug",
                 body: "Something broken or missing? File it and it gets looked at.",
-                href: CONVX.issuesUrl,
+                href: WHISPRY.issuesUrl,
                 cta: "open an issue",
               },
               {
                 icon: Coffee,
                 label: "ko-fi",
                 body: "Buy a coffee. Servers, test devices and late nights say thanks.",
-                href: CONVX.kofiUrl,
+                href: WHISPRY.kofiUrl,
                 cta: "support on ko-fi",
               },
-              ...(CONVX.paypalUrl
-                ? [
-                    {
-                      icon: Wallet,
-                      label: "paypal",
-                      body: "Prefer PayPal? One-off tips go straight to development.",
-                      href: CONVX.paypalUrl,
-                      cta: "send via paypal",
-                    },
-                  ]
-                : []),
               {
                 icon: Wallet,
                 label: "upi (india)",
-                body: `Pay directly via UPI: ${CONVX.upi}`,
-                href: `upi://pay?pa=${CONVX.upi}&pn=Convx`,
+                body: `Pay directly via UPI: ${WHISPRY.upi}`,
+                href: `upi://pay?pa=${WHISPRY.upi}&pn=Whispry`,
                 cta: "pay via upi",
               },
             ].map((item) => {
@@ -528,13 +483,13 @@ export default async function ConvxPage() {
               hire me
             </Link>
             <Link
-              href="/convx/privacy"
+              href="/whispry/privacy"
               className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
             >
               privacy
             </Link>
             <Link
-              href="/convx/terms"
+              href="/whispry/terms"
               className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
             >
               terms
@@ -542,6 +497,6 @@ export default async function ConvxPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

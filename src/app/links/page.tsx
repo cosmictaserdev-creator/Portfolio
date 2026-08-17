@@ -25,7 +25,7 @@ export default function LinksPage() {
 
       <h1 className="mt-6 font-display text-3xl lowercase">{PERSON_ALIAS}</h1>
       <p className="mt-2 text-sm text-muted">
-        {PERSON_NAME} — Android &amp; software developer
+        {PERSON_NAME}, Android &amp; software developer
       </p>
 
       <div className="mt-10 flex w-full flex-col gap-4">

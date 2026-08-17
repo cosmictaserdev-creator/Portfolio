@@ -5,7 +5,9 @@ import { GITHUB_URL } from "@/content/links";
 
 const internal = [
   { href: "/convx", label: "convx" },
-  { href: "/convx#download", label: "download" },
+  { href: "/convx#download", label: "convx download" },
+  { href: "/whispry", label: "whispry" },
+  { href: "/whispry#download", label: "whispry download" },
   { href: "/links", label: "links" },
   { href: "/contact", label: "contact" },
 ];
@@ -17,8 +19,10 @@ const external = [
 ];
 
 const legal = [
-  { href: "/convx/privacy", label: "privacy" },
-  { href: "/convx/terms", label: "terms" },
+  { href: "/convx/privacy", label: "convx privacy" },
+  { href: "/convx/terms", label: "convx terms" },
+  { href: "/whispry/privacy", label: "whispry privacy" },
+  { href: "/whispry/terms", label: "whispry terms" },
 ];
 
 export function Footer() {
@@ -36,8 +40,8 @@ export function Footer() {
               {PERSON_ALIAS}
             </Link>
             <p className="mt-3 max-w-[30ch] text-xs normal-case leading-relaxed text-muted">
-              {PERSON_NAME} — freelance Android &amp; software developer, India.
-              Maker of Convx.
+              {PERSON_NAME}, freelance Android &amp; software developer, India.
+              Maker of Convx and Whispry.
             </p>
           </div>
 
@@ -55,7 +59,7 @@ export function Footer() {
           </nav>
 
           <nav className="flex flex-col gap-3 text-xs text-muted">
-            <span className="text-foreground">convx</span>
+            <span className="text-foreground">elsewhere</span>
             {external.map((link) => (
               <a
                 key={link.href}
@@ -88,8 +92,9 @@ export function Footer() {
             © {PERSON_NAME} {year}
           </p>
           <p className="max-w-[52ch] normal-case">
-            Convx is not affiliated with, endorsed by or associated with YouTube
-            or Google LLC.
+            Convx is not affiliated with YouTube or Google LLC. Whispry is not
+            affiliated with Groq, OpenAI or any other AI provider it can be
+            configured to use.
           </p>
           <p>
             crafted with <span className="text-accent">♥</span> by {PERSON_ALIAS}

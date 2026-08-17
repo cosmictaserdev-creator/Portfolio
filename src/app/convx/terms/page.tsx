@@ -6,7 +6,7 @@ import { SITE_URL, CONTACT_EMAIL } from "@/content/site";
 export const metadata: Metadata = {
   title: "Convx terms of use",
   description:
-    "Terms of use for Convx — the free, open-source Liquid Glass music player for Android. Licence, disclaimer, acceptable use and liability.",
+    "Terms of use for Convx, the free, open-source Liquid Glass music player for Android. Licence, disclaimer, acceptable use and liability.",
   alternates: { canonical: `${SITE_URL}/convx/terms` },
 };
 
@@ -26,7 +26,7 @@ export default function ConvxTermsPage() {
         {
           heading: "licence",
           body: [
-            `Convx is released under the ${CONVX.license} licence. You are free to use, study, modify and redistribute it under that licence's conditions — including the requirement that derivative works remain under the same licence and that source is made available.`,
+            `Convx is released under the ${CONVX.license} licence. You are free to use, study, modify and redistribute it under that licence's conditions, including the requirement that derivative works remain under the same licence and that source is made available.`,
             `The full licence text lives with the source at ${CONVX.repoUrl}.`,
           ],
         },

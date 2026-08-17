@@ -1,5 +1,6 @@
 import { CONTACT_EMAIL } from "./site";
 import { CONVX } from "./convx";
+import { WHISPRY } from "./whispry";
 
 export type SocialLink = {
   label: string;
@@ -34,6 +35,16 @@ export const linkTree = [
     label: "Convx Discord",
     href: CONVX.discordUrl,
     description: "Community, support & release pings",
+  },
+  {
+    label: "Whispry",
+    href: "/whispry",
+    description: "Hold-to-talk voice transcription for Android",
+  },
+  {
+    label: "Download Whispry",
+    href: WHISPRY.releasesUrl,
+    description: "Latest APK on GitHub Releases",
   },
   {
     label: "GitHub",

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowRight, Download } from "lucide-react";
 import { ensureGsapPlugins, gsap, prefersReducedMotion } from "@/lib/gsap";
 import { RevealText } from "@/components/ui/RevealText";
-import { Aurora } from "@/components/convx/Aurora";
+import { Aurora } from "@/components/ui/Aurora";
 
 const SHOTS = [
   { src: "/convx/home-mobile.png", alt: "Convx home screen with the liquid glass mini player" },
@@ -62,7 +62,7 @@ export function ConvxShowcase({ stats }: { stats: { label: string; value: string
         </RevealText>
         <p className="mt-4 max-w-[52ch] text-sm normal-case leading-relaxed text-muted sm:text-base">
           A free, open-source music player for Android with a Liquid Glass
-          interface — real backdrop blur and refraction, synced lyrics, offline
+          interface: real backdrop blur and refraction, synced lyrics, offline
           downloads and no telemetry at all. Built in Kotlin and Jetpack Compose.
         </p>
       </div>

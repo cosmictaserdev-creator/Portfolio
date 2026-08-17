@@ -73,7 +73,7 @@ export function Splash() {
               the descender on "y" — pad the box out, pull the same amount
               back off the layout */}
           <h1
-            aria-label="Aryan Sharma — Android &amp; software developer"
+            aria-label="Aryan Sharma, Android &amp; software developer"
             className="-mb-[0.16em] flex overflow-hidden pb-[0.16em] font-display font-semibold normal-case leading-[0.9] tracking-tight text-accent"
             style={{ fontSize: "clamp(4.5rem, 23vw, 19rem)" }}
           >

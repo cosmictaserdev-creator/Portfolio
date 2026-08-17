@@ -90,7 +90,7 @@ export function WideText() {
 
         <p className="w-full max-w-none self-end pr-4 pt-4 text-right sm:pr-16">
           <span className="inline-block max-w-[38ch]">
-            The invisible work — cold starts, offline sync, a steady 60fps —
+            The invisible work (cold starts, offline sync, a steady 60fps)
             is what makes an app feel effortless.
           </span>
         </p>

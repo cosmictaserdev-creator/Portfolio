@@ -21,7 +21,7 @@ export const pillars: Pillar[] = [
     subtitle: "Full stack",
     title: "web &\nsoftware",
     paragraph:
-      "Fast, SEO-friendly web products with Next.js and TypeScript — from marketing sites to full applications.",
+      "Fast, SEO-friendly web products with Next.js and TypeScript, from marketing sites to full applications.",
   },
   {
     icon: Layers,
@@ -35,6 +35,6 @@ export const pillars: Pillar[] = [
     subtitle: "Freelance",
     title: "let's\nbuild",
     paragraph:
-      "Currently taking on freelance and contract work — from a single feature to a full product build.",
+      "Currently taking on freelance and contract work, from a single feature to a full product build.",
   },
 ];

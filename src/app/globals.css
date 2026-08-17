@@ -24,6 +24,21 @@
   --accent-solid: #3d5ce0;
 }
 
+/* Whispry keeps its own green identity, pulled from the hero photo,
+   instead of the site's blue. Scoped so it never leaks onto Convx or
+   the rest of the site. */
+.theme-whispry {
+  --accent: #3f8f3a;
+  --accent-2: #57a84f;
+  --accent-solid: #3f8f3a;
+}
+
+.dark .theme-whispry {
+  --accent: #8ee06b;
+  --accent-2: #b6f09a;
+  --accent-solid: #4f9c3a;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
