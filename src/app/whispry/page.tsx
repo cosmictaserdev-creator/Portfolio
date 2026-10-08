@@ -483,6 +483,12 @@ export default async function WhispryPage() {
               hire me
             </Link>
             <Link
+              href="/whispry/premium"
+              className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
+            >
+              premium
+            </Link>
+            <Link
               href="/whispry/privacy"
               className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
             >

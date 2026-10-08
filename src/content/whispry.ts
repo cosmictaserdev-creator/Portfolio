@@ -26,6 +26,7 @@ export const WHISPRY = {
   issuesUrl: "https://github.com/cosmictaserdev-creator/whispry/issues",
   discussionsUrl: "https://github.com/cosmictaserdev-creator/whispry/discussions",
   kofiUrl: "https://ko-fi.com/cosmictaser",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.cosmictaser.whispry",
   upi: "cosmictaser@okicici",
   license: "AGPL-3.0",
   minAndroid: "Android 8.0+",
@@ -191,6 +192,41 @@ export const architecture = [
   {
     title: "data",
     body: "Room holds transcripts and memory facts, DataStore holds preferences. Hilt wires the modules together.",
+  },
+];
+
+export type PremiumFeature = { icon: LucideIcon; title: string; body: string };
+
+export const premiumFeatures: PremiumFeature[] = [
+  {
+    icon: Wand2,
+    title: "All writing presets",
+    body: "Professional, Casual, Polite and Concise, alongside Raw and Auto-Format, for any tone an app calls for.",
+  },
+  {
+    icon: Type,
+    title: "Voice commands & text expander",
+    body: "Trigger saved snippets and actions mid-dictation, and expand short typed triggers into full text anywhere.",
+  },
+  {
+    icon: Brain,
+    title: "Memory & per-app tone",
+    body: "Facts you never repeat yourself, plus a different formatting style remembered per app.",
+  },
+  {
+    icon: KeyRound,
+    title: "Personal dictionary",
+    body: "Names, jargon and spellings the transcription step gets right every time.",
+  },
+  {
+    icon: Mic,
+    title: "Meetings & AI notes",
+    body: "Record a meeting, transcribe it, and get an AI summary — all in one place, on-device.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "No ads",
+    body: "Removes the ads shown in the free tier. Everything else about Whispry stays the same.",
   },
 ];
 

@@ -8,6 +8,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: `${SITE_URL}/convx`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/whispry`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: `${SITE_URL}/whispry/premium`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    { url: `${SITE_URL}/sfsymbols`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.6 },
     { url: `${SITE_URL}/links`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     {

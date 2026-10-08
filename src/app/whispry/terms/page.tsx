@@ -17,7 +17,7 @@ export default function WhispryTermsPage() {
       updated="17 August 2026"
       backHref="/whispry"
       backLabel="whispry"
-      intro="Whispry is free software given away for nothing. These terms exist so everyone knows where they stand."
+      intro="Whispry's core features are free. Premium is an optional one-time purchase. These terms exist so everyone knows where they stand."
       sections={[
         {
           heading: "acceptance",
@@ -55,7 +55,14 @@ export default function WhispryTermsPage() {
         {
           heading: "distribution",
           body: [
-            `The only official builds of Whispry are the APKs published at ${WHISPRY.releasesUrl} and linked from this website. Builds obtained anywhere else are not verified and may be modified.`,
+            `Official builds of Whispry are distributed through Google Play (${WHISPRY.playStoreUrl}) and as APKs published at ${WHISPRY.releasesUrl}. Builds obtained anywhere else are not verified and may be modified.`,
+          ],
+        },
+        {
+          heading: "premium, purchases & advertising",
+          body: [
+            "Premium is a one-time, non-subscription purchase made through Google Play Billing that unlocks additional features listed in the app and on this site. Google processes payment; we never see your payment details, and purchases are governed by Google Play's own refund policy.",
+            "The free tier shows ads served by Google AdMob. You can remove ads by purchasing Premium.",
           ],
         },
         {
