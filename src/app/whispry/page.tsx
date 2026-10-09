@@ -24,12 +24,7 @@ export default function WhispryPage() {
     <div className="theme-whispry whispry-product">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <WhispryHero />
-      <nav aria-label="Whispry page" className="border-y border-border px-6 sm:px-10">
-        <div className="mx-auto flex max-w-6xl flex-wrap gap-x-8 gap-y-4 py-5 text-sm">
-          <a href="#features">dictation</a><a href="#screens">screens</a><Link href="/whispry/premium">premium</Link><Link href="/whispry/support">support</Link><Link href="/whispry/privacy">privacy</Link>
-        </div>
-      </nav>
-      <section id="features" className="scroll-mt-24 px-6 py-20 sm:px-10 sm:py-28">
+      <section id="features" className="scroll-mt-24 border-t border-border px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-2 lg:gap-24">
           {features.map((feature) => <div key={feature.title}>
             <p className="text-sm normal-case text-accent">{feature.subtitle}</p>

@@ -7,11 +7,7 @@ export function WhispryHero() {
     <section className="px-6 pb-16 pt-12 sm:px-10 sm:pb-24 sm:pt-20">
       <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
-          <div className="flex items-center gap-3">
-            <Image src="/whispry/icon.png" alt="" width={48} height={48} className="rounded-xl" />
-            <span className="font-display text-2xl normal-case">Whispry</span>
-          </div>
-          <p className="mt-8 text-sm text-muted">voice typing for android</p>
+          <p className="text-sm text-muted">voice typing for android</p>
           <h1 className="mt-4 font-display text-[clamp(2.6rem,6vw,5.5rem)] font-semibold normal-case leading-[0.98] tracking-tight">
             Speak freely.<br /><span className="text-accent">Write clearly.</span>
           </h1>

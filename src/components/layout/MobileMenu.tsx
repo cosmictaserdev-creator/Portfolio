@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
+const portfolioLinks = [
   { href: "/convx", label: "convx" },
   { href: "/whispry", label: "whispry" },
   { href: "/sfsymbols", label: "sf symbols" },
@@ -13,10 +13,17 @@ const links = [
   { href: "/contact", label: "reach out" },
 ];
 
-export function MobileMenu() {
+const whispryLinks = [
+  { href: "/whispry", label: "whispry" },
+  { href: "/whispry/premium", label: "premium" },
+  { href: "/whispry/support", label: "support" },
+];
+
+export function MobileMenu({ variant = "portfolio" }: { variant?: "portfolio" | "whispry" }) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const links = variant === "whispry" ? whispryLinks : portfolioLinks;
 
   useEffect(() => setMounted(true), []);
 
