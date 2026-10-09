@@ -71,7 +71,7 @@ export function MobileMenu({ variant = "portfolio" }: { variant?: "portfolio" | 
         }`}
         style={{ transitionDelay: open ? "360ms" : "0ms" }}
       >
-        android &amp; software developer &middot; india
+        {variant === "whispry" ? "voice typing for android" : "android & software developer · india"}
       </p>
     </div>
   );
