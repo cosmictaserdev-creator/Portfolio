@@ -10,7 +10,6 @@ import { Footer } from "@/components/layout/Footer";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { SITE_URL, PERSON_NAME, PERSON_ALIAS, SITE_DESCRIPTION } from "@/content/site";
 import { CONVX } from "@/content/convx";
-import { WHISPRY } from "@/content/whispry";
 import { GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL } from "@/content/links";
 
 // Expressive variable grotesque (OFL) — tight editorial spacing that holds
@@ -90,7 +89,7 @@ const jsonLd = {
     "Web Development",
     "Software Engineering",
   ],
-  sameAs: [GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL, CONVX.repoUrl, WHISPRY.repoUrl],
+  sameAs: [GITHUB_URL, LINKEDIN_URL, INSTAGRAM_URL, CONVX.repoUrl],
 };
 
 export default function RootLayout({

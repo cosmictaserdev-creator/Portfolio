@@ -8,6 +8,7 @@ const internal = [
   { href: "/convx#download", label: "convx download" },
   { href: "/whispry", label: "whispry" },
   { href: "/whispry#download", label: "whispry download" },
+  { href: "/sfsymbols", label: "sf symbols" },
   { href: "/links", label: "links" },
   { href: "/contact", label: "contact" },
 ];
@@ -41,7 +42,7 @@ export function Footer() {
             </Link>
             <p className="mt-3 max-w-[30ch] text-xs normal-case leading-relaxed text-muted">
               {PERSON_NAME}, freelance Android &amp; software developer, India.
-              Maker of Convx and Whispry.
+              Maker of Convx, Whispry and Jetpack SF Symbols.
             </p>
           </div>
 

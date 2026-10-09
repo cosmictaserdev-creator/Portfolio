@@ -15,8 +15,8 @@ export default function OgImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background: "linear-gradient(135deg, #05100a 0%, #103a1a 55%, #3f8f3a 100%)",
-          color: "#f5f5f7",
+          background: "#f5f2e9",
+          color: "#242326",
           fontFamily: "sans-serif",
         }}
       >
@@ -26,24 +26,24 @@ export default function OgImage() {
               width: 12,
               height: 12,
               borderRadius: 999,
-              background: "#8ee06b",
+              background: "#6250b5",
               display: "flex",
             }}
           />
-          open source · android 8.0+ · free
+          android 8.0+ · free + premium
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 168, fontWeight: 700, letterSpacing: -6, lineHeight: 1 }}>
             whispry
           </div>
-          <div style={{ fontSize: 42, marginTop: 18, color: "#cdeec0", lineHeight: 1.25 }}>
-            Hold-to-talk voice transcription for Android
+          <div style={{ fontSize: 42, marginTop: 18, color: "#6250b5", lineHeight: 1.25 }}>
+            Speak freely. Write clearly.
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, opacity: 0.75 }}>
-          <div style={{ display: "flex" }}>volume key · floating widget · keyboard trigger</div>
+          <div style={{ display: "flex" }}>voice typing · writing tools · meeting notes</div>
           <div style={{ display: "flex" }}>cosmictaser</div>
         </div>
       </div>

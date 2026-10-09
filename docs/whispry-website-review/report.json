@@ -1,0 +1,384 @@
+{
+  "base": "http://127.0.0.1:3100",
+  "pages": [
+    {
+      "route": "/whispry",
+      "width": 1440,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "Speak freely.Write clearly."
+    },
+    {
+      "route": "/whispry/premium",
+      "width": 1440,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "Less editing.More of your voice."
+    },
+    {
+      "route": "/whispry/privacy",
+      "width": 1440,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "privacy policy"
+    },
+    {
+      "route": "/whispry/terms",
+      "width": 1440,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "terms of use"
+    },
+    {
+      "route": "/whispry/support",
+      "width": 1440,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "whispry support"
+    },
+    {
+      "route": "/whispry/data-deletion",
+      "width": 1440,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "delete your data"
+    },
+    {
+      "route": "/whispry",
+      "width": 1440,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "Speak freely.Write clearly."
+    },
+    {
+      "route": "/whispry/premium",
+      "width": 1440,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "Less editing.More of your voice."
+    },
+    {
+      "route": "/whispry/privacy",
+      "width": 1440,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "privacy policy"
+    },
+    {
+      "route": "/whispry/terms",
+      "width": 1440,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "terms of use"
+    },
+    {
+      "route": "/whispry/support",
+      "width": 1440,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "whispry support"
+    },
+    {
+      "route": "/whispry/data-deletion",
+      "width": 1440,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "delete your data"
+    },
+    {
+      "route": "/whispry",
+      "width": 390,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "Speak freely.Write clearly."
+    },
+    {
+      "route": "/whispry/premium",
+      "width": 390,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "Less editing.More of your voice."
+    },
+    {
+      "route": "/whispry/privacy",
+      "width": 390,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "privacy policy"
+    },
+    {
+      "route": "/whispry/terms",
+      "width": 390,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "terms of use"
+    },
+    {
+      "route": "/whispry/support",
+      "width": 390,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "whispry support"
+    },
+    {
+      "route": "/whispry/data-deletion",
+      "width": 390,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "delete your data"
+    },
+    {
+      "route": "/whispry",
+      "width": 390,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "Speak freely.Write clearly."
+    },
+    {
+      "route": "/whispry/premium",
+      "width": 390,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "Less editing.More of your voice."
+    },
+    {
+      "route": "/whispry/privacy",
+      "width": 390,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "privacy policy"
+    },
+    {
+      "route": "/whispry/terms",
+      "width": 390,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "terms of use"
+    },
+    {
+      "route": "/whispry/support",
+      "width": 390,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "whispry support"
+    },
+    {
+      "route": "/whispry/data-deletion",
+      "width": 390,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "delete your data"
+    },
+    {
+      "route": "/whispry",
+      "width": 320,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "Speak freely.Write clearly."
+    },
+    {
+      "route": "/whispry/premium",
+      "width": 320,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "Less editing.More of your voice."
+    },
+    {
+      "route": "/whispry/privacy",
+      "width": 320,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "privacy policy"
+    },
+    {
+      "route": "/whispry/terms",
+      "width": 320,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "terms of use"
+    },
+    {
+      "route": "/whispry/support",
+      "width": 320,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "whispry support"
+    },
+    {
+      "route": "/whispry/data-deletion",
+      "width": 320,
+      "theme": "light",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable light",
+      "h1": "delete your data"
+    },
+    {
+      "route": "/whispry",
+      "width": 320,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "Speak freely.Write clearly."
+    },
+    {
+      "route": "/whispry/premium",
+      "width": 320,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "Less editing.More of your voice."
+    },
+    {
+      "route": "/whispry/privacy",
+      "width": 320,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "privacy policy"
+    },
+    {
+      "route": "/whispry/terms",
+      "width": 320,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "terms of use"
+    },
+    {
+      "route": "/whispry/support",
+      "width": 320,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "whispry support"
+    },
+    {
+      "route": "/whispry/data-deletion",
+      "width": 320,
+      "theme": "dark",
+      "status": 200,
+      "overflow": false,
+      "brokenImages": [],
+      "appliedTheme": "bricolage_grotesque_39e77c2-module__wK3c2G__variable satoshi_6e8de14d-module__u-x7bW__variable dark",
+      "h1": "delete your data"
+    }
+  ],
+  "errors": [],
+  "actions": [
+    "FAQ toggles and screenshot rail at 1440/light",
+    "Theme toggle at 1440/light",
+    "FAQ toggles and screenshot rail at 1440/dark",
+    "Theme toggle at 1440/dark",
+    "FAQ toggles and screenshot rail at 390/light",
+    "Theme toggle at 390/light",
+    "Mobile menu open/Escape at 390/light",
+    "FAQ toggles and screenshot rail at 390/dark",
+    "Theme toggle at 390/dark",
+    "Mobile menu open/Escape at 390/dark",
+    "FAQ toggles and screenshot rail at 320/light",
+    "Theme toggle at 320/light",
+    "Mobile menu open/Escape at 320/light",
+    "FAQ toggles and screenshot rail at 320/dark",
+    "Theme toggle at 320/dark",
+    "Mobile menu open/Escape at 320/dark"
+  ]
+}

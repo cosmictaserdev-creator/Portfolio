@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/layout/LegalPage";
-import { WHISPRY } from "@/content/whispry";
 import { SITE_URL, CONTACT_EMAIL } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -23,8 +22,8 @@ export default function WhispryPrivacyPage() {
           heading: "data the app handles",
           body: [
             "Voice recordings: audio is recorded only after you start a dictation or a meeting recording (Android shows its microphone indicator while recording), then sent directly from your device to the speech-to-text provider you select in Settings (Groq by default, OpenAI, or a custom endpoint), authenticated with your own API key. Premium users' personal dictionary words are sent with it as spelling hints.",
-            "Transcripts and AI formatting: if you use an AI writing preset, the transcript text is sent to the AI formatting provider you select. For Premium users, the Memory notes you saved are included so the result matches your style.",
-            "Content you create: history, meeting recordings and notes, text shortcuts, My Info entries, voice commands, personal dictionary, memories, app tones, and settings — all stored only on your device.",
+            "Transcripts and AI formatting: if you use an AI writing preset, the transcript text is sent to the AI formatting provider you select. For Premium users, the Memory notes you saved are included so the result matches your style. Meeting transcription sends the recording to your selected transcription provider. Generating meeting notes or asking about a meeting sends the relevant transcript and your question to your configured AI provider.",
+            "Content you create: history, meeting recordings and notes, text shortcuts, My Info entries, voice commands, personal dictionary, memories, app tones, and settings are all stored only on your device.",
             "API keys: stored on-device, encrypted with the Android Keystore, sent only to the provider they belong to, and excluded from device backups.",
             "Accessibility Service, only if you turn it on: used to see which app is in front and where your keyboard is (to place the mic button and apply an app tone you configured), paste your dictated text into the field you're typing in, and, only for the optional \"calculate\" voice command, tap your calculator's buttons. It accesses the focused editable field and its existing text only to insert your dictated words, reads calculator button labels only on request, and can forward short taps on the collapsed side tab to the app underneath. This data is processed locally and is not stored or transmitted by Whispry.",
             "Display over other apps: shows the floating mic button and keyboard mic button above other apps. It is not used to collect data.",
@@ -44,8 +43,9 @@ export default function WhispryPrivacyPage() {
         {
           heading: "who receives data",
           body: [
-            "The speech-to-text and AI formatting providers you choose, acting on your instructions: Groq, OpenAI, OpenRouter, Together AI, or a custom endpoint you point the app at — check that operator's own policy. Whether a provider retains API data or uses it for training is governed by that provider's API terms; most do not train on API data by default.",
+            "The speech-to-text and AI formatting providers you choose, acting on your instructions: Groq, OpenAI, OpenRouter, Together AI, or a custom endpoint you point the app at. Check that operator's own policy. Whether a provider retains API data or uses it for training is governed by that provider's API terms.",
             "Google, for AdMob ads and consent, and Google Play Billing.",
+            "Provider policies: https://groq.com/privacy-policy and https://openai.com/policies/privacy-policy and https://openrouter.ai/privacy and https://www.together.ai/privacy. Google privacy policy: https://policies.google.com/privacy. Check the operator's policy before using a custom endpoint.",
             "Nobody else. We do not sell or rent personal data, and we do not \"share\" it for cross-context behavioral advertising beyond the AdMob processing described above.",
           ],
         },
@@ -90,7 +90,7 @@ export default function WhispryPrivacyPage() {
         {
           heading: "contact and grievances",
           body: [
-            `Privacy questions, requests, or grievances (including under India's DPDP Act): ${CONTACT_EMAIL}. We aim to respond within 30 days. You can also open an issue at ${WHISPRY.issuesUrl}.`,
+            `Privacy questions, requests, or grievances (including under India's DPDP Act): ${CONTACT_EMAIL}. We aim to respond within 30 days.`,
           ],
         },
       ]}

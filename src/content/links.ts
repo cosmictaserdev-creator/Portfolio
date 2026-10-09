@@ -1,6 +1,7 @@
 import { CONTACT_EMAIL } from "./site";
 import { CONVX } from "./convx";
 import { WHISPRY } from "./whispry";
+import { SFSYMBOLS } from "./sfsymbols";
 
 export type SocialLink = {
   label: string;
@@ -29,7 +30,7 @@ export const linkTree = [
   {
     label: "Download Convx",
     href: CONVX.releasesUrl,
-    description: "Latest APK on GitHub Releases",
+    description: "Official Google Play listing",
   },
   {
     label: "Convx Discord",
@@ -42,8 +43,18 @@ export const linkTree = [
     description: "Hold-to-talk voice transcription for Android",
   },
   {
+    label: "Jetpack SF Symbols",
+    href: "/sfsymbols",
+    description: "All 7,007 Apple SF Symbols for Jetpack Compose",
+  },
+  {
+    label: "SF Symbols on GitHub",
+    href: SFSYMBOLS.repoUrl,
+    description: "The Kotlin port, MIT licensed",
+  },
+  {
     label: "Download Whispry",
-    href: WHISPRY.releasesUrl,
+    href: WHISPRY.playStoreUrl,
     description: "Latest APK on GitHub Releases",
   },
   {

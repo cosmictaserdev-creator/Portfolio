@@ -24,19 +24,69 @@
   --accent-solid: #3d5ce0;
 }
 
-/* Whispry keeps its own green identity, pulled from the hero photo,
-   instead of the site's blue. Scoped so it never leaks onto Convx or
-   the rest of the site. */
+/* Whispry's cream, ink and violet follow the current Android app. */
 .theme-whispry {
-  --accent: #3f8f3a;
-  --accent-2: #57a84f;
-  --accent-solid: #3f8f3a;
+  --background: #f5f2e9;
+  --surface: #fffdf7;
+  --foreground: #242326;
+  --muted: #636068;
+  --border: #d9d5df;
+  --accent: #6250b5;
+  --accent-2: #6250b5;
+  --accent-solid: #6250b5;
 }
 
 .dark .theme-whispry {
-  --accent: #8ee06b;
-  --accent-2: #b6f09a;
-  --accent-solid: #4f9c3a;
+  --background: #0c0b0e;
+  --surface: #19171d;
+  --foreground: #f4f1e8;
+  --muted: #b2adb9;
+  --border: #38333f;
+  --accent: #c6b9ff;
+  --accent-2: #c6b9ff;
+  --accent-solid: #6250b5;
+}
+
+.whispry-product { background: var(--background); color: var(--foreground); }
+.whispry-primary, .whispry-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 14px 24px; border-radius: 14px;
+  font-size: 14px; font-weight: 600; text-transform: none;
+  transition: opacity 160ms ease;
+}
+.whispry-primary { background: var(--accent-solid); color: #ffffff; }
+.whispry-secondary { border: 1px solid var(--border); color: var(--foreground); }
+.whispry-primary:hover, .whispry-secondary:hover { opacity: 0.85; }
+.whispry-product :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+
+/* SF Symbols keeps its own orange/amber identity — warm, graphical, a
+   contrast to Convx blue and Whispry green. Scoped so it never leaks. */
+.theme-sfsymbols {
+  --accent: #c2410c;
+  --accent-2: #ea580c;
+  --accent-solid: #e25822;
+  --accent-sub: #b45309;
+}
+
+.dark .theme-sfsymbols {
+  --accent: #fb923c;
+  --accent-2: #fdba74;
+  --accent-solid: #ea580c;
+  --accent-sub: #f59e0b;
+}
+
+/* SF Symbols catalog icon tiles — the generated glyph marks */
+.sf-tile {
+  --tile-hi: rgba(255, 255, 255, 0.55);
+  --tile-lo: rgba(0, 0, 0, 0.06);
+  background:
+    radial-gradient(120% 120% at 15% 0%, var(--tile-hi), transparent 55%),
+    linear-gradient(160deg, var(--tile-lo), transparent 60%);
+}
+
+.dark .sf-tile {
+  --tile-hi: rgba(255, 255, 255, 0.22);
+  --tile-lo: rgba(0, 0, 0, 0.35);
 }
 
 @theme inline {

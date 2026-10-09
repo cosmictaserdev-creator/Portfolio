@@ -22,6 +22,9 @@ export function Header() {
             <Link href="/whispry" className="transition-colors hover:text-accent">
               whispry
             </Link>
+            <Link href="/sfsymbols" className="transition-colors hover:text-accent">
+              sf symbols
+            </Link>
             <Link href="/links" className="transition-colors hover:text-accent">
               links
             </Link>

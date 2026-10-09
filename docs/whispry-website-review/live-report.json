@@ -1,0 +1,48 @@
+{
+  "url": "https://cosmictaser.de5.net",
+  "checks": [
+    {
+      "route": "/whispry",
+      "width": 1440,
+      "status": 200,
+      "title": "Whispry: Voice Typing & Meeting Notes for Android",
+      "overflow": false,
+      "h1": "Speak freely.Write clearly.",
+      "missingVisibleImages": 0
+    },
+    {
+      "route": "/whispry",
+      "width": 390,
+      "status": 200,
+      "title": "Whispry: Voice Typing & Meeting Notes for Android",
+      "overflow": false,
+      "h1": "Speak freely.Write clearly.",
+      "missingVisibleImages": 0
+    },
+    {
+      "route": "/whispry/premium",
+      "width": 390,
+      "status": 200,
+      "title": "Whispry Premium: One Purchase, More Writing Tools",
+      "overflow": false,
+      "h1": "Less editing.More of your voice.",
+      "missingVisibleImages": 0
+    },
+    {
+      "route": "/whispry/privacy",
+      "width": 390,
+      "status": 200,
+      "title": "Whispry privacy policy | Aryan Sharma",
+      "overflow": false,
+      "h1": "privacy policy",
+      "missingVisibleImages": 0
+    },
+    {
+      "route": "/",
+      "status": 200,
+      "currentWhispryShowcase": true,
+      "oldWhispryClaim": false
+    }
+  ],
+  "errors": []
+}

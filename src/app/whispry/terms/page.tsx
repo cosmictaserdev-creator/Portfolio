@@ -6,7 +6,7 @@ import { SITE_URL, CONTACT_EMAIL } from "@/content/site";
 export const metadata: Metadata = {
   title: "Whispry terms of use",
   description:
-    "Terms of use for Whispry, the free, open-source hold-to-talk voice transcription app for Android. Licence, third-party AI providers, disclaimer and liability.",
+    "Terms of use for Whispry: proprietary licence, free features, one-time Premium purchases, rewarded trials and third-party AI providers.",
   alternates: { canonical: `${SITE_URL}/whispry/terms` },
 };
 
@@ -14,7 +14,7 @@ export default function WhispryTermsPage() {
   return (
     <LegalPage
       title="terms of use"
-      updated="17 August 2026"
+      updated="9 October 2026"
       backHref="/whispry"
       backLabel="whispry"
       intro="Whispry's core features are free. Premium is an optional one-time purchase. These terms exist so everyone knows where they stand."
@@ -28,8 +28,8 @@ export default function WhispryTermsPage() {
         {
           heading: "licence",
           body: [
-            `Whispry is released under the ${WHISPRY.license} licence, with an additional Section 7 term requiring attribution to be preserved in any fork or redistribution. You are free to use, study, modify and redistribute it under that licence's conditions.`,
-            `The full licence text and the attribution notice live with the source at ${WHISPRY.repoUrl}.`,
+            "Whispry is proprietary software. Copyright (c) 2026 CosmicIsAryan (cosmictaser). All rights reserved. Permission to use the app is granted as part of a licensed installation obtained through official distribution channels.",
+            "Redistribution, resale, modification, or publication of the source code or binaries through unofficial channels requires prior written permission. Statutory rights and exceptions under applicable law remain unaffected.",
           ],
         },
         {
@@ -55,7 +55,7 @@ export default function WhispryTermsPage() {
         {
           heading: "distribution",
           body: [
-            `Official builds of Whispry are distributed through Google Play (${WHISPRY.playStoreUrl}) and as APKs published at ${WHISPRY.releasesUrl}. Builds obtained anywhere else are not verified and may be modified.`,
+            `Use the official Google Play listing: ${WHISPRY.playStoreUrl}. Availability depends on the release track and your region. Updates to Play installations are delivered through Google Play.`,
           ],
         },
         {
@@ -63,13 +63,15 @@ export default function WhispryTermsPage() {
           body: [
             "Premium is a one-time, non-subscription purchase made through Google Play Billing that unlocks additional features listed in the app and on this site. Google processes payment; we never see your payment details, and purchases are governed by Google Play's own refund policy.",
             "The free tier shows ads served by Google AdMob. You can remove ads by purchasing Premium.",
+            "Two completed rewarded videos unlock Pro tools for six hours while ads remain enabled. Individual meeting transcription or export rewards may also be offered in the app. Trials and rewards do not constitute ownership of Premium.",
+            "The app displays the current local purchase price before confirmation. Restore purchases using the same Google Play account. Pending purchases unlock after completion; refunds may revoke the entitlement. Premium does not include AI provider credits or remove provider rate limits.",
           ],
         },
         {
           heading: "no warranty",
           body: [
             "Whispry is provided “as is”, without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose and non-infringement.",
-            "Sideloaded software carries inherent risk, and transcription accuracy depends entirely on the AI provider you choose. You install and use Whispry at your own discretion.",
+            "Transcription and AI-generated notes can contain errors. Review the output before relying on it, and obtain any required consent before recording other people. Features may be affected by device settings, Android restrictions, or third-party provider availability.",
           ],
         },
         {
@@ -79,9 +81,9 @@ export default function WhispryTermsPage() {
           ],
         },
         {
-          heading: "donations",
+          heading: "your legal rights",
           body: [
-            "Ko-fi and UPI contributions are voluntary gifts toward development. They are not purchases, do not buy features, priority support or a licence, and are non-refundable.",
+            "Nothing in these terms excludes rights or remedies that cannot be excluded under applicable consumer law. Google Play purchase and refund policies apply alongside those rights.",
           ],
         },
         {

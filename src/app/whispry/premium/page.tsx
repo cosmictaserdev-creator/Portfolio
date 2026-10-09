@@ -1,181 +1,64 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Check, X } from "lucide-react";
-import { RevealText } from "@/components/ui/RevealText";
-import { Statement } from "@/components/sections/Statement";
-import { WHISPRY, premiumFeatures } from "@/content/whispry";
+import Image from "next/image";
+import { WHISPRY, premiumFeatures, comparison } from "@/content/whispry";
 import { SITE_URL } from "@/content/site";
 
-const TITLE = "Whispry Premium: unlock every feature";
-const DESCRIPTION =
-  "Whispry Premium is a one-time purchase that unlocks presets, voice commands, text expander, memory, meeting notes and removes ads. No subscription.";
-
+const title = "Whispry Premium: One Purchase, More Writing Tools";
+const description = "Compare Whispry Free and Premium. Unlock writing presets, dictionary, shortcuts, memory and meeting notes with one Google Play purchase. No subscription.";
 export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
+  title: { absolute: title }, description,
   alternates: { canonical: `${SITE_URL}/whispry/premium` },
-  openGraph: {
-    type: "website",
-    url: `${SITE_URL}/whispry/premium`,
-    title: TITLE,
-    description: DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-  },
+  openGraph: { title, description, url: `${SITE_URL}/whispry/premium` },
 };
 
-const COMPARISON: { label: string; basic: boolean }[] = [
-  { label: "Unlimited dictation", basic: true },
-  { label: "Floating mic & keyboard mic", basic: true },
-  { label: "Library & search", basic: true },
-  { label: "Clean formatting", basic: true },
-  { label: "All writing presets", basic: false },
-  { label: "Voice commands", basic: false },
-  { label: "Personal dictionary", basic: false },
-  { label: "Text expander & My Info", basic: false },
-  { label: "Memory & per-app tone", basic: false },
-  { label: "Meetings & AI notes", basic: false },
-  { label: "No ads", basic: false },
-];
-
 export default function WhispryPremiumPage() {
-  return (
-    <div className="theme-whispry">
-      <section className="px-6 pb-10 pt-16 sm:px-10 sm:pt-24">
-        <div className="mx-auto max-w-6xl">
-          <Link
-            href="/whispry"
-            className="mb-10 flex w-fit items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
-          >
-            <ArrowLeft size={16} />
-            whispry
-          </Link>
-
-          <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-wide">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />
-            one-time purchase · no subscription
-          </span>
-
-          <RevealText as="h1" immediate className="mt-5 text-clamp-xxl lowercase leading-[0.92] text-accent">
-            whispry premium
-          </RevealText>
-
-          <p className="mt-6 max-w-[48ch] text-sm normal-case leading-relaxed text-muted sm:text-base">
-            Whispry's core dictation stays free, forever. Premium is a single purchase that
-            unlocks every preset, voice commands, text expander, memory, meeting notes, and
-            removes ads — bought once in the app, through Google Play.
-          </p>
-
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <a
-              href={WHISPRY.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass glass-accent group flex items-center gap-3 rounded-full px-7 py-3.5 text-sm text-white transition-transform hover:scale-[1.03]"
-            >
-              get whispry on google play
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
-          <p className="mt-4 text-xs text-muted">
-            Premium unlocks from inside the app — Settings &gt; Whispry Pro.
-          </p>
-        </div>
-      </section>
-
-      <Statement
-        intro="one purchase, every feature"
-        lines={["unlock it", "once,", "keep it"]}
-        outro="no subscription, no recurring charge — buy Premium once and it's yours on that account."
-      />
-
-      {/* ---------------- premium features ---------------- */}
-      <section className="px-6 py-10 sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {premiumFeatures.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={feature.title}
-                className="flex flex-col gap-5 rounded-[2rem] border border-border bg-surface p-7"
-              >
-                <Icon size={28} strokeWidth={1.5} className="text-accent" />
-                <h3 className="font-display text-2xl lowercase">{feature.title}</h3>
-                <p className="text-sm normal-case leading-relaxed text-muted">{feature.body}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ---------------- comparison ---------------- */}
-      <section className="px-6 py-24 sm:px-10 sm:py-32">
-        <div className="mx-auto mb-12 flex max-w-6xl flex-col items-center gap-3 px-0 text-center">
-          <p>basic vs premium</p>
-          <RevealText as="h2" className="text-clamp-xl lowercase leading-[0.92] text-accent">
-            what you get
-          </RevealText>
-        </div>
-
-        <div className="mx-auto max-w-2xl overflow-hidden rounded-[2rem] border border-border bg-surface">
-          <div className="flex items-center border-b border-border px-6 py-4">
-            <span className="flex-1 text-xs tracking-wide text-muted">feature</span>
-            <span className="w-16 text-center text-xs tracking-wide text-muted">basic</span>
-            <span className="w-16 text-center text-xs tracking-wide text-accent">premium</span>
-          </div>
-          {COMPARISON.map((row) => (
-            <div
-              key={row.label}
-              className="flex items-center border-b border-border px-6 py-4 last:border-b-0"
-            >
-              <span className="flex-1 text-sm normal-case text-foreground">{row.label}</span>
-              <span className="flex w-16 justify-center">
-                {row.basic ? (
-                  <Check size={16} className="text-muted" />
-                ) : (
-                  <X size={16} className="text-muted/40" />
-                )}
-              </span>
-              <span className="flex w-16 justify-center">
-                <Check size={18} className="text-accent" />
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------------- cta ---------------- */}
-      <section className="border-t border-border px-6 py-20 sm:px-10 sm:py-28">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+  return <div className="theme-whispry whispry-product">
+    <section className="px-6 py-16 sm:px-10 sm:py-24">
+      <div className="mx-auto max-w-6xl">
+        <Link href="/whispry" className="text-sm text-muted underline underline-offset-4">back to whispry</Link>
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
-            <p className="text-xs text-muted">questions before you buy</p>
-            <Link
-              href="/whispry/privacy"
-              className="mt-1 block font-display text-3xl normal-case text-accent transition-opacity hover:opacity-70 sm:text-4xl"
-            >
-              read the privacy policy
-            </Link>
+            <p className="text-sm text-accent">premium · called whispry pro in the app</p>
+            <h1 className="mt-4 font-display text-5xl normal-case leading-[1.05] tracking-tight sm:text-7xl">Less editing.<br />More of <span className="text-accent">your voice.</span></h1>
+            <p className="mt-7 max-w-[48ch] text-base normal-case leading-relaxed text-muted">No subscription. One purchase unlocks personal writing tools, meeting notes, and an ad-free app — forever. Core dictation is included in Free.</p>
+            <a href={WHISPRY.playStoreUrl} className="whispry-primary mt-8 inline-flex">Get Whispry on Google Play</a>
+            <p className="mt-5 max-w-[52ch] text-sm normal-case leading-relaxed text-muted">Buy inside the app from Settings → Whispry Pro. Google Play shows the current local price before you confirm. No subscription. Your own AI key is required; provider usage charges are separate.</p>
           </div>
-
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/whispry"
-              className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
-            >
-              back to whispry
-            </Link>
-            <Link
-              href="/whispry/terms"
-              className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
-            >
-              terms
-            </Link>
-          </div>
+          <Image src="/whispry/dictionary.png" alt="Whispry Premium personal dictionary with example custom words" width={945} height={2048} sizes="(max-width: 768px) 60vw, 260px" className="mx-auto w-[60%] max-w-[260px] rounded-3xl border border-border" />
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    </section>
+    <section className="border-y border-border bg-surface px-6 py-16 sm:px-10 sm:py-24">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="font-display text-4xl normal-case sm:text-5xl">What Premium adds.</h2>
+        <div className="mt-12 grid gap-x-14 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          {premiumFeatures.map(feature => <div key={feature.title} className="border-t border-border pt-6">
+            <h3 className="font-display text-2xl normal-case">{feature.title}</h3>
+            <p className="mt-4 text-sm normal-case leading-relaxed text-muted">{feature.body}</p>
+          </div>)}
+        </div>
+      </div>
+    </section>
+    <section className="px-6 py-20 sm:px-10 sm:py-28">
+      <div className="mx-auto max-w-3xl">
+        <h2 className="font-display text-4xl normal-case sm:text-5xl">Choose what you need.</h2>
+        <div className="mt-10 overflow-x-auto">
+          <table className="w-full text-left text-sm normal-case">
+            <caption className="sr-only">Whispry Free and paid Premium feature comparison</caption>
+            <thead><tr className="border-b border-border"><th scope="col" className="py-5 pr-3 font-medium">Feature</th><th scope="col" className="px-3 py-5 text-center font-medium">Free</th><th scope="col" className="px-3 py-5 text-center font-medium text-accent">Premium</th></tr></thead>
+            <tbody>{comparison.map(row => <tr key={row.label} className="border-b border-border"><th scope="row" className="py-5 pr-3 font-normal">{row.label}</th><td className="px-3 py-5 text-center text-muted">{row.free ? "Included" : row.label === "Remove advertising" ? "Not included" : "Trial*"}</td><td className="px-3 py-5 text-center text-accent">Included</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p className="mt-6 text-sm normal-case leading-relaxed text-muted">*Two completed rewarded videos unlock Pro tools for six hours. Advertising remains enabled during a trial; ad removal requires the paid purchase. Provider rate limits and charges apply to both plans.</p>
+        <p className="mt-4 text-sm normal-case leading-relaxed text-muted">The free app also offers a rewarded video for an individual meeting transcription or audio export when available. Creating or importing recordings and generating AI notes require Pro access.</p>
+        <div className="mt-12 border-t border-border pt-8">
+          <h3 className="font-display text-2xl normal-case">Already bought Premium?</h3>
+          <p className="mt-4 text-sm normal-case leading-relaxed text-muted">Use Restore purchases on the Whispry Pro screen with the same Google Play account. Pending purchases unlock after payment completes. Refunds can revoke the unlock. Google Play handles payment and refund requests.</p>
+          <Link href="/whispry/support" className="mt-5 inline-block text-sm underline underline-offset-4">Get purchase support</Link>
+        </div>
+      </div>
+    </section>
+    <div className="mx-auto flex max-w-6xl flex-wrap gap-6 border-t border-border px-6 py-10 text-sm sm:px-10"><Link href="/whispry">whispry</Link><Link href="/whispry/privacy">privacy policy</Link><Link href="/whispry/terms">purchase terms</Link></div>
+  </div>;
 }

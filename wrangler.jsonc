@@ -2,6 +2,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cosmictaser-portfolio",
   "main": ".open-next/worker.js",
+  // next-themes serializes an inline script; preserving function names
+  // injects a helper that is unavailable in the browser.
+  "keep_names": false,
   "compatibility_date": "2026-08-01",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,

@@ -1,507 +1,90 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Download, Coffee, Wallet, ArrowUpRight, Bug, Scale } from "lucide-react";
-import { GithubIcon } from "@/components/icons/BrandIcons";
-import { RevealText } from "@/components/ui/RevealText";
-import { Statement } from "@/components/sections/Statement";
-import { Marquee } from "@/components/ui/Marquee";
-import { ShotRail } from "@/components/ui/ShotRail";
 import { Faq } from "@/components/ui/Faq";
 import { WhispryHero } from "@/components/whispry/WhispryHero";
-import {
-  WHISPRY,
-  features,
-  miniFeatures,
-  phoneShots,
-  stack,
-  architecture,
-  faq,
-} from "@/content/whispry";
-import { getReleaseInfo, formatCount, highlightsFrom } from "@/lib/github-release";
+import { WHISPRY, features, phoneShots, faq } from "@/content/whispry";
 import { SITE_URL, PERSON_NAME } from "@/content/site";
 
-// 46 chars.
-const TITLE = "Whispry: Voice Transcription for Android";
-// 150 chars.
-const DESCRIPTION =
-  "Whispry is a free, open-source Android app for hold-to-talk voice transcription. Dictate anywhere with your own AI key. Download the latest APK.";
-
+const title = "Whispry: Voice Typing & Meeting Notes for Android";
+const description = "Speak freely. Write clearly. Android voice typing with your own AI key. Free dictation, plus a one-time Premium unlock for writing tools and meeting notes.";
 export const metadata: Metadata = {
-  title: { absolute: TITLE },
-  description: DESCRIPTION,
-  keywords: [
-    "Whispry",
-    "Whispry Android app",
-    "Whispry APK",
-    "voice transcription Android",
-    "hold to talk dictation",
-    "speech to text Android app",
-    "Jetpack Compose voice app",
-    "open source dictation app",
-    "Groq transcription app",
-    "AI voice typing Android",
-  ],
+  title: { absolute: title }, description,
   alternates: { canonical: `${SITE_URL}/whispry` },
-  openGraph: {
-    type: "website",
-    url: `${SITE_URL}/whispry`,
-    siteName: `${PERSON_NAME}, cosmictaser`,
-    title: TITLE,
-    description: DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-  },
+  openGraph: { type: "website", url: `${SITE_URL}/whispry`, title, description },
+  twitter: { card: "summary_large_image", title, description },
 };
 
-export default async function WhispryPage() {
-  const release = await getReleaseInfo(WHISPRY);
-  const highlights = highlightsFrom(release.notes);
-
-  const stats = [
-    { label: "apk downloads", value: formatCount(release.totalDownloads) },
-    { label: "latest build", value: release.version },
-    { label: "github stars", value: formatCount(release.stars) },
-    { label: "price", value: "free" },
-  ];
-
-  const jsonLd = [
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      name: WHISPRY.name,
-      operatingSystem: "Android 8.0+",
-      applicationCategory: "UtilitiesApplication",
-      description: WHISPRY.blurb,
-      softwareVersion: release.version,
-      downloadUrl: release.apkUrl,
-      url: `${SITE_URL}/whispry`,
-      license: "https://www.gnu.org/licenses/agpl-3.0.html",
-      author: { "@type": "Person", name: PERSON_NAME, url: SITE_URL },
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faq.map((item) => ({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a },
-      })),
-    },
-  ];
-
+export default function WhispryPage() {
+  const jsonLd = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: WHISPRY.name,
+    operatingSystem: WHISPRY.minAndroid, applicationCategory: "ProductivityApplication", description: WHISPRY.blurb,
+    url: `${SITE_URL}/whispry`, installUrl: WHISPRY.playStoreUrl, author: { "@type": "Person", name: PERSON_NAME },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "Free with ads and optional in-app Premium purchase. AI provider usage is separate." } };
   return (
-    <div className="theme-whispry">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <WhispryHero
-        version={release.version}
-        apkUrl={release.apkUrl}
-        apkSizeMb={release.apkSizeMb}
-        stats={stats}
-      />
-
-      <Marquee
-        items={[
-          "hold to talk",
-          "bring your own key",
-          "ai formatting",
-          "hinglish output",
-          "text expander",
-          "memory bank",
-          "zero telemetry",
-          "keyboard trigger",
-          "floating widget",
-        ]}
-      />
-
-      <Statement
-        intro="an app built around one habit"
-        lines={["talk it out,", "whispry", "writes it right"]}
-        outro="a single trigger (volume key, floating widget or keyboard button) types a formatted transcript straight into whatever app you're in."
-      />
-
-      {/* ---------------- features ---------------- */}
-      <section id="features" className="scroll-mt-24 px-6 py-10 sm:px-10">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 lg:grid-cols-2">
-          {features.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <div
-                key={feature.title}
-                className="flex flex-col gap-7 rounded-[2.5rem] border border-border bg-surface p-8 sm:p-10"
-              >
-                <Icon size={38} strokeWidth={1.5} className="text-accent" />
-
-                <div>
-                  <span className="text-xs tracking-wide text-muted">
-                    {feature.subtitle}
-                  </span>
-                  <h3 className="mt-1 whitespace-pre-line font-display text-4xl lowercase text-accent sm:text-5xl">
-                    {feature.title}
-                  </h3>
-                </div>
-
-                <p className="text-sm normal-case leading-relaxed">{feature.body}</p>
-
-                <ul className="mt-auto flex flex-col gap-3 border-t border-border pt-6">
-                  {feature.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-3 text-sm normal-case text-muted"
-                    >
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-                        aria-hidden
-                      />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+    <div className="theme-whispry whispry-product">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <WhispryHero />
+      <nav aria-label="Whispry page" className="border-y border-border px-6 sm:px-10">
+        <div className="mx-auto flex max-w-6xl flex-wrap gap-x-8 gap-y-4 py-5 text-sm">
+          <a href="#features">dictation</a><a href="#screens">screens</a><Link href="/whispry/premium">premium</Link><Link href="/whispry/support">support</Link><Link href="/whispry/privacy">privacy</Link>
+        </div>
+      </nav>
+      <section id="features" className="scroll-mt-24 px-6 py-20 sm:px-10 sm:py-28">
+        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-2 lg:gap-24">
+          {features.map((feature) => <div key={feature.title}>
+            <p className="text-sm normal-case text-accent">{feature.subtitle}</p>
+            <h2 className="mt-4 whitespace-pre-line font-display text-4xl normal-case leading-tight sm:text-5xl">{feature.title}</h2>
+            <p className="mt-6 max-w-[48ch] text-base normal-case leading-relaxed text-muted">{feature.body}</p>
+            <ul className="mt-7 space-y-3 border-t border-border pt-6 text-sm normal-case text-muted">{feature.points.map(point => <li key={point}>{point}</li>)}</ul>
+          </div>)}
         </div>
       </section>
-
-      {/* ---------------- screenshot gallery ---------------- */}
-      <section id="screens" className="scroll-mt-24 py-24 sm:py-32">
-        <div className="mx-auto mb-14 flex max-w-6xl flex-col items-center gap-3 px-6 text-center sm:px-10">
-          <p>seven screens, one trigger philosophy</p>
-          <RevealText as="h2" className="text-clamp-xxl lowercase leading-[0.92] text-accent">
-            see it
-          </RevealText>
-        </div>
-        <ShotRail shots={phoneShots} />
-      </section>
-
-      {/* ---------------- mini features ---------------- */}
-      <section className="px-6 py-16 sm:px-10 sm:py-24">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {miniFeatures.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="flex flex-col gap-5 rounded-[2rem] border border-border bg-surface p-7"
-              >
-                <Icon size={26} strokeWidth={1.5} className="text-accent" />
-                <h3 className="font-display text-2xl lowercase">{item.title}</h3>
-                <p className="text-sm normal-case leading-relaxed text-muted">{item.body}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ---------------- under the hood ---------------- */}
-      <section id="tech" className="scroll-mt-24 px-6 py-24 sm:px-10 sm:py-32">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-14 lg:grid-cols-[1fr_1fr]">
+      <section className="border-y border-border bg-surface px-6 py-20 sm:px-10 sm:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+          <Image src="/whispry/meeting-notes.png" alt="A demo meeting with audio playback, transcript and AI notes" width={945} height={2048} sizes="(max-width: 768px) 65vw, 290px" className="mx-auto w-[65%] max-w-[290px] rounded-3xl border border-border" />
           <div>
-            <p>for the people who ask what it&apos;s made of</p>
-            <RevealText
-              as="h2"
-              className="mt-3 text-clamp-xl lowercase leading-[0.92] text-accent"
-            >
-              under the hood
-            </RevealText>
-
-            <div className="mt-8 flex flex-wrap gap-2">
-              {stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-border px-4 py-1.5 text-xs text-muted"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href={WHISPRY.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-sm transition-colors hover:border-accent hover:text-accent"
-              >
-                <GithubIcon size={16} />
-                read the code
-              </a>
-              <a
-                href={`${WHISPRY.repoUrl}/blob/master/CONTRIBUTING.md`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
-              >
-                <ArrowUpRight size={16} />
-                contributing
-              </a>
-            </div>
-          </div>
-
-          <dl className="flex flex-col gap-8">
-            {architecture.map((item) => (
-              <div key={item.title} className="border-t border-border pt-6">
-                <dt className="font-display text-2xl lowercase text-accent">{item.title}</dt>
-                <dd className="mt-2 text-sm normal-case leading-relaxed text-muted">
-                  {item.body}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* ---------------- what's new ---------------- */}
-      {highlights.length > 0 && (
-        <section id="changelog" className="scroll-mt-24 px-6 pb-24 sm:px-10 sm:pb-32">
-          <div className="mx-auto max-w-6xl rounded-[2.5rem] border border-border bg-surface p-8 sm:p-12">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <span className="text-xs tracking-wide text-muted">
-                  {release.publishedAt
-                    ? new Date(release.publishedAt).toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })
-                    : "latest release"}
-                </span>
-                <h2 className="mt-1 font-display text-4xl lowercase text-accent sm:text-5xl">
-                  what&apos;s new in {release.version}
-                </h2>
-              </div>
-              <a
-                href={WHISPRY.releasesUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm transition-colors hover:text-accent"
-              >
-                full changelog
-                <ArrowUpRight size={16} />
-              </a>
-            </div>
-
-            <ul className="mt-9 grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
-              {highlights.map((line) => (
-                <li
-                  key={line}
-                  className="flex items-start gap-3 text-sm normal-case leading-relaxed text-muted"
-                >
-                  <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
-                    aria-hidden
-                  />
-                  {line}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {/* ---------------- download ---------------- */}
-      <section
-        id="download"
-        className="relative isolate scroll-mt-24 overflow-hidden border-y border-border px-6 py-24 sm:px-10 sm:py-32"
-      >
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 lg:grid-cols-[1fr_auto]">
-          <div>
-            <p>ready when you are</p>
-            <RevealText
-              as="h2"
-              className="mt-3 text-clamp-xxl lowercase leading-[0.92] text-accent"
-            >
-              get whispry
-            </RevealText>
-
-            <p className="mt-6 max-w-[48ch] text-sm normal-case leading-relaxed text-muted">
-              Download the APK, allow installs from unknown sources, add your
-              AI provider key in Settings, and you&apos;re dictating. Whispry
-              checks GitHub for updates itself, so you never need this page
-              again.
-            </p>
-
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <a
-                href={release.apkUrl}
-                className="glass glass-accent group flex items-center gap-3 rounded-full px-8 py-4 text-sm text-white transition-transform hover:scale-[1.03]"
-                data-analytics="whispry-download-footer"
-              >
-                <Download size={18} className="transition-transform group-hover:translate-y-0.5" />
-                download {release.version}
-                {release.apkSizeMb ? (
-                  <span className="text-white/70">{release.apkSizeMb} MB</span>
-                ) : null}
-              </a>
-              <a
-                href={WHISPRY.releasesUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass flex items-center gap-2 rounded-full px-6 py-4 text-sm transition-transform hover:scale-[1.03]"
-              >
-                all releases
-                <ArrowUpRight size={16} />
-              </a>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs text-muted">
-              <span className="flex items-center gap-2">
-                <Scale size={14} /> {WHISPRY.license}
-              </span>
-              <span>{WHISPRY.minAndroid}</span>
-              <span>
-                {formatCount(release.totalDownloads)} downloads and counting
-              </span>
-            </div>
-          </div>
-
-          <div className="mx-auto w-[58%] max-w-[260px] lg:w-[260px]">
-            <Image
-              src="/whispry/home.png"
-              alt="Whispry home screen"
-              width={1480}
-              height={2800}
-              sizes="260px"
-              className="shot-shadow h-auto w-full"
-            />
+            <p className="text-sm text-accent">whispry premium</p>
+            <h2 className="mt-4 font-display text-4xl normal-case leading-tight sm:text-6xl">More room<br />for your voice.</h2>
+            <p className="mt-6 max-w-[46ch] text-base normal-case leading-relaxed text-muted">Your dictionary. Your reusable phrases. A tone for every app. And meeting recordings you can turn into transcripts, notes, and answers.</p>
+            <p className="mt-5 max-w-[46ch] text-base normal-case leading-relaxed text-muted">Unlock Premium once through Google Play for the full set of tools and an ad-free app. Your provider key powers the AI requests.</p>
+            <Link href="/whispry/premium" className="whispry-primary mt-8 inline-flex">Compare Free &amp; Premium</Link>
           </div>
         </div>
       </section>
-
-      {/* ---------------- community & support ---------------- */}
-      <section id="community" className="scroll-mt-24 px-6 py-24 sm:px-10 sm:py-32">
+      <section id="screens" className="scroll-mt-24 px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto max-w-6xl">
-          <p>whispry is free and always will be</p>
-          <RevealText
-            as="h2"
-            className="mt-3 text-clamp-xl lowercase leading-[0.92] text-accent"
-          >
-            community &amp; support
-          </RevealText>
-
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: GithubIcon,
-                label: "github",
-                body: "Source, releases and the issue tracker. Pull requests welcome.",
-                href: WHISPRY.repoUrl,
-                cta: "open the repo",
-              },
-              {
-                icon: Bug,
-                label: "report a bug",
-                body: "Something broken or missing? File it and it gets looked at.",
-                href: WHISPRY.issuesUrl,
-                cta: "open an issue",
-              },
-              {
-                icon: Coffee,
-                label: "ko-fi",
-                body: "Buy a coffee. Servers, test devices and late nights say thanks.",
-                href: WHISPRY.kofiUrl,
-                cta: "support on ko-fi",
-              },
-              {
-                icon: Wallet,
-                label: "upi (india)",
-                body: `Pay directly via UPI: ${WHISPRY.upi}`,
-                href: `upi://pay?pa=${WHISPRY.upi}&pn=Whispry`,
-                cta: "pay via upi",
-              },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex flex-col gap-4 rounded-[2rem] border border-border bg-surface p-7 transition-colors hover:border-accent"
-                >
-                  <Icon size={24} strokeWidth={1.5} className="text-accent" />
-                  <h3 className="font-display text-2xl lowercase">{item.label}</h3>
-                  <p className="text-sm normal-case leading-relaxed text-muted">{item.body}</p>
-                  <span className="mt-auto flex items-center gap-2 pt-2 text-sm transition-colors group-hover:text-accent">
-                    {item.cta}
-                    <ArrowUpRight size={15} />
-                  </span>
-                </a>
-              );
-            })}
+          <p className="text-sm text-muted">inside whispry</p>
+          <h2 className="mt-4 font-display text-4xl normal-case sm:text-6xl">Small mic. Big possibilities.</h2>
+          <p className="mt-5 max-w-[60ch] text-sm normal-case leading-relaxed text-muted">Real Android app screens with example content. Premium tools are labelled below. Swipe or scroll to see the full set.</p>
+          <div tabIndex={0} role="region" aria-label="Whispry screenshots, scroll horizontally" className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6">
+            {phoneShots.map(shot => <figure key={shot.src} className="w-[65vw] max-w-[245px] shrink-0 snap-start">
+              <Image src={shot.src} alt={shot.alt} width={945} height={2048} sizes="(max-width: 640px) 65vw, 245px" className="h-auto w-full rounded-2xl border border-border bg-black" />
+              <figcaption className="mt-4 text-sm normal-case leading-relaxed text-muted">{shot.caption}</figcaption>
+            </figure>)}
           </div>
         </div>
       </section>
-
-      {/* ---------------- faq ---------------- */}
-      <section id="faq" className="scroll-mt-24 px-6 pb-24 sm:px-10 sm:pb-32">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <p>the usual questions</p>
-            <RevealText
-              as="h2"
-              className="mt-3 text-clamp-xl lowercase leading-[0.92] text-accent"
-            >
-              faq
-            </RevealText>
+      <section className="border-t border-border px-6 py-16 sm:px-10 sm:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:gap-24">
+          <h2 className="font-display text-4xl normal-case leading-tight sm:text-5xl">Your phone.<br />Your provider.<br />Your choice.</h2>
+          <div className="space-y-5 text-base normal-case leading-relaxed text-muted">
+            <p>History and meeting recordings live on your device. Your API keys are encrypted with Android Keystore. Whispry has no user accounts or server that receives your recordings.</p>
+            <p>Transcription sends audio directly to your chosen AI provider. Formatting and meeting requests send the text they need, including saved memory or dictionary hints when used. The free app uses Google AdMob; purchases use Google Play Billing.</p>
+            <Link href="/whispry/privacy" className="inline-block text-accent underline underline-offset-4">Read the full privacy policy</Link>
           </div>
-
-          <Faq items={faq} />
         </div>
       </section>
-
-      {/* ---------------- back to the portfolio ---------------- */}
-      <section className="border-t border-border px-6 py-20 sm:px-10 sm:py-28">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
-          <div>
-            <p className="text-xs text-muted">built, designed and maintained by</p>
-            <Link
-              href="/"
-              className="mt-1 block font-display text-4xl normal-case text-accent transition-opacity hover:opacity-70 sm:text-5xl"
-            >
-              {PERSON_NAME}
-            </Link>
-            <p className="mt-2 max-w-[44ch] text-sm normal-case text-muted">
-              Freelance Android &amp; software developer. Available for app builds,
-              feature work and rescue missions.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="rounded-full bg-accent-solid px-7 py-3.5 text-sm text-white transition-transform hover:scale-105"
-            >
-              hire me
-            </Link>
-            <Link
-              href="/whispry/premium"
-              className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
-            >
-              premium
-            </Link>
-            <Link
-              href="/whispry/privacy"
-              className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
-            >
-              privacy
-            </Link>
-            <Link
-              href="/whispry/terms"
-              className="rounded-full border border-border px-6 py-3.5 text-sm text-muted transition-colors hover:border-accent hover:text-accent"
-            >
-              terms
-            </Link>
-          </div>
+      <section id="faq" className="scroll-mt-24 border-t border-border px-6 py-20 sm:px-10">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+          <h2 className="font-display text-4xl normal-case sm:text-5xl">Before you<br />press record.</h2><Faq items={faq} />
         </div>
+      </section>
+      <section id="download" className="scroll-mt-24 border-t border-border bg-surface px-6 py-20 sm:px-10">
+        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-8 lg:flex-row lg:items-center">
+          <div><h2 className="font-display text-4xl normal-case sm:text-5xl">Talk it out.</h2><p className="mt-4 text-sm normal-case text-muted">Install Whispry, connect your provider key, and choose your mic trigger.</p></div>
+          <a href={WHISPRY.playStoreUrl} className="whispry-primary w-fit">Get Whispry on Google Play</a>
+        </div>
+        <div className="mx-auto mt-12 flex max-w-6xl flex-wrap gap-6 text-sm"><Link href="/whispry/support">support</Link><Link href="/whispry/privacy">privacy policy</Link><Link href="/whispry/terms">terms of use</Link><Link href="/whispry/data-deletion">delete your data</Link></div>
       </section>
     </div>
   );

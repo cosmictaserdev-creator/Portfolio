@@ -7,6 +7,6 @@ export const SITE_URL =
 export const PERSON_NAME = "Aryan Sharma";
 export const PERSON_ALIAS = "cosmictaser";
 export const SITE_DESCRIPTION =
-  "Aryan (cosmictaser) is a freelance Android & software developer based in India, and the maker of Convx, the open-source Liquid Glass music player for Android, and Whispry, an open-source hold-to-talk voice transcription app for Android.";
+  "Aryan (cosmictaser) is a freelance Android & software developer based in India, and the maker of Convx, the open-source Liquid Glass music player for Android, Whispry, a voice typing and meeting notes app for Android with optional Premium, and Jetpack SF Symbols, all 7,007 Apple SF Symbols for Compose.";
 export const CONTACT_EMAIL = "cosmictaser.dev@gmail.com";
 export const LOCATION = "India";
