@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Faq } from "@/components/ui/Faq";
 import { WhispryHero } from "@/components/whispry/WhispryHero";
+import { ToneComparison } from "@/components/whispry/ToneComparison";
+import { AndroidPhoneFrame } from "@/components/whispry/AndroidPhoneFrame";
 import { WHISPRY, features, phoneShots, faq } from "@/content/whispry";
 import { SITE_URL, PERSON_NAME } from "@/content/site";
 
@@ -34,9 +35,21 @@ export default function WhispryPage() {
           </div>)}
         </div>
       </section>
-      <section className="border-y border-border bg-surface px-6 py-20 sm:px-10 sm:py-28">
+      <section className="border-y border-border px-6 py-20 sm:px-10 sm:py-28">
+        <div className="mx-auto max-w-6xl text-center">
+          <p className="text-sm text-accent">premium · a tone for every app</p>
+          <h2 className="mt-4 font-display text-4xl normal-case sm:text-6xl">Formal in email.<br />Casual in WhatsApp.</h2>
+          <p className="mx-auto mt-5 max-w-[56ch] text-base normal-case leading-relaxed text-muted">
+            Same words. Pick a tone and Whispry rewrites them to match — then remembers which app gets which tone, automatically.
+          </p>
+        </div>
+        <div className="mt-12">
+          <ToneComparison />
+        </div>
+      </section>
+      <section className="border-b border-border bg-surface px-6 py-20 sm:px-10 sm:py-28">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-          <Image src="/whispry/meeting-notes.png" alt="A demo meeting with audio playback, transcript and AI notes" width={945} height={2048} sizes="(max-width: 768px) 65vw, 290px" className="mx-auto w-[65%] max-w-[290px] rounded-3xl border border-border" />
+          <AndroidPhoneFrame src="/whispry/meeting-notes.png" alt="A demo meeting with audio playback, transcript and AI notes" className="mx-auto w-[65%] max-w-[290px]" />
           <div>
             <p className="text-sm text-accent">whispry premium</p>
             <h2 className="mt-4 font-display text-4xl normal-case leading-tight sm:text-6xl">More room<br />for your voice.</h2>
@@ -53,7 +66,7 @@ export default function WhispryPage() {
           <p className="mt-5 max-w-[60ch] text-sm normal-case leading-relaxed text-muted">Real Android app screens with example content. Premium tools are labelled below. Swipe or scroll to see the full set.</p>
           <div tabIndex={0} role="region" aria-label="Whispry screenshots, scroll horizontally" className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6">
             {phoneShots.map(shot => <figure key={shot.src} className="w-[65vw] max-w-[245px] shrink-0 snap-start">
-              <Image src={shot.src} alt={shot.alt} width={945} height={2048} sizes="(max-width: 640px) 65vw, 245px" className="h-auto w-full rounded-2xl border border-border bg-black" />
+              <AndroidPhoneFrame src={shot.src} alt={shot.alt} sizes="(max-width: 640px) 65vw, 245px" />
               <figcaption className="mt-4 text-sm normal-case leading-relaxed text-muted">{shot.caption}</figcaption>
             </figure>)}
           </div>

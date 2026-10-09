@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { WHISPRY } from "@/content/whispry";
+import { AndroidPhoneFrame } from "@/components/whispry/AndroidPhoneFrame";
+import { DictationDemo } from "@/components/whispry/DictationDemo";
 
 export function WhispryHero() {
   return (
@@ -20,9 +21,16 @@ export function WhispryHero() {
           </div>
           <p className="mt-5 text-xs normal-case leading-relaxed text-muted">{WHISPRY.minAndroid} · Free with ads · Optional one-time Premium purchase<br />Your AI provider key is required. Provider charges are separate.</p>
         </div>
-        <div className="relative mx-auto flex w-full max-w-[420px] items-center justify-center gap-4 sm:gap-5">
-          <Image src="/whispry/home.png" alt="Whispry home with the dictation button and recent transcripts" width={945} height={2048} priority sizes="(max-width: 600px) 43vw, 210px" className="w-[51%] rounded-[1.6rem] border border-border bg-black" />
-          <Image src="/whispry/keyboard-trigger.png" alt="Whispry mic works alongside your existing keyboard" width={945} height={2048} priority sizes="(max-width: 600px) 35vw, 175px" className="mt-20 w-[43%] rounded-[1.4rem] border border-border bg-black" />
+        <div className="relative mx-auto w-full max-w-[280px] lg:ml-auto">
+          <AndroidPhoneFrame
+            src="/whispry/home.png"
+            alt="Whispry home with the dictation button and recent transcripts"
+            priority
+            sizes="(max-width: 600px) 55vw, 280px"
+          />
+          <div className="relative mx-auto mt-8 w-full max-w-[300px] lg:absolute lg:-bottom-6 lg:-left-[260px] lg:mt-0 lg:w-[300px]">
+            <DictationDemo />
+          </div>
         </div>
       </div>
     </section>

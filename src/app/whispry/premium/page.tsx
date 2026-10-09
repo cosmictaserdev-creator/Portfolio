@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { AndroidPhoneFrame } from "@/components/whispry/AndroidPhoneFrame";
 import { WHISPRY, premiumFeatures, comparison } from "@/content/whispry";
 import { SITE_URL } from "@/content/site";
 
@@ -25,7 +25,7 @@ export default function WhispryPremiumPage() {
             <a href={WHISPRY.playStoreUrl} className="whispry-primary mt-8 inline-flex">Get Whispry on Google Play</a>
             <p className="mt-5 max-w-[52ch] text-sm normal-case leading-relaxed text-muted">Buy inside the app from Settings → Whispry Pro. Google Play shows the current local price before you confirm. No subscription. Your own AI key is required; provider usage charges are separate.</p>
           </div>
-          <Image src="/whispry/dictionary.png" alt="Whispry Premium personal dictionary with example custom words" width={945} height={2048} sizes="(max-width: 768px) 60vw, 260px" className="mx-auto w-[60%] max-w-[260px] rounded-3xl border border-border" />
+          <AndroidPhoneFrame src="/whispry/dictionary.png" alt="Whispry Premium personal dictionary with example custom words" priority sizes="(max-width: 768px) 60vw, 260px" className="mx-auto w-[60%] max-w-[260px]" />
         </div>
       </div>
     </section>
